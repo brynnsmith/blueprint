@@ -1,17 +1,67 @@
 <%- include('partials/header') -%>
 <div class="">
   <div class="">
-    <div class="">
-      <h2><%= jobPost.jobTitle%></h2>
-      <h3><%= jobPost.jobPostURL%></h3>
-      <h2><%= jobPost.company%></h2>
-      <h3><%= jobPost.companyURL%></h3>
-      <h2><%= jobPost.jobLocation%></h2>
-      <h2><%= jobPost.salary%></h2>
-      <h2><%= jobPost.description%></h2>
-      <h2>Skills Required:</h2>
+    <section class="">
+      <h2>Job Description</h2>
+      <h3>Job Title:</h3>
+      <span><%= jobPost.jobTitle%></span>
+      <h3>Job Post URL:</h3>
+      <span><%= jobPost.jobPostURL%></span>
+      <h3>Company:</h3>
+      <span><%= jobPost.company%></span>
+      <h3>Company URL:</h3>
+      <span><%= jobPost.companyURL%></span>
+      <h3>Job Location (Location, Hybrid, Remote, etc):</h3>
+      <span><%= jobPost.jobLocation%></span>
+      <h3>Expected Salary:</h3>
+      <span><%= jobPost.salary%></span>
+      <h3>Description:</h3>
+      <span><%= jobPost.description%></span>
+      <h3>Skills Required:</h3>
       <span><%= jobPost.skillsRequired%></span>
+
+      <h2>Job Status</h2>
+      <% if(jobPost.applied === false && jobPost.interview === false && jobPost.offer === false && jobPost.jobVault === false) { %>
+        <span class="jobStatus">Active</span>
+      <% } else if (jobPost.applied === true && jobPost.interview === false && jobPost.offer === false && jobPost.jobVault === false) { %>
+        <span class="jobStatus">Applied</span>
+        <span class=""><%= jobPost.dateApplied%></span>
+      <% } else if (jobPost.interview === true && jobPost.offer === false && jobPost.offerAccepted === false && jobPost.jobVault === false) { %>
+        <span class="">Applied</span>
+        <span class=""><%= jobPost.dateApplied%></span>
+        <span class="jobStatus">Interviewing</span>
+        <span class=""><%= jobPost.intDate%></span>
+      <% } else if (jobPost.offer === true && jobPost.offerAccepted === false && jobPost.jobVault === false) { %>
+        <span class="">Applied</span>
+        <span class=""><%= jobPost.dateApplied%></span>
+        <span class="">Interviewed</span>
+        <span class=""><%= jobPost.intDate%></span>
+        <span class="jobStatus">Negotiating Offer</span>
+        <span class=""><%= jobPost.dateOffered%></span>
+      <% } else if (jobPost.offerAccepted === true && jobPost.jobVault === false) { %>
+        <span class="jobStatus">Offer Accepted! Yay!</span>
+        <span class=""><%= jobPost.dateAccepted%></span>
+      <% } else if (jobPost.jobVault === true) { %>
+        <span class="jobStatus">Vaulted</span>
+      <% }
+      %> 
+
+      <h2>Interviews</h2> //TODO: Add Interview Section
+      <h2>Contacts</h2> //TODO: Add Contacts Section
+      <h2>Networking</h2> //TODO: Add Networking Section
+
+      // TODO: ADD FORM TO ADD NOTES TO JOB POST
+      <h2>Additional Notes</h2>
+      <form action="/jobPost/createJobPost" enctype="multipart/form-data" method="POST">
+        <div class="">
+          <label for="imgUpload" class="form-label">Image</label>
+          <textarea id="">
+        </div>
+        <button type="submit" class="btn btn-primary" value="Upload">Submit</button>
+      </form>
       
+
+
       <div class="">
         <form
           class=""

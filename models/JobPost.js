@@ -76,6 +76,9 @@ const JobPostSchema = new mongoose.Schema({
     type: Boolean,
     default: false,
   },
+  dateAccepted: {
+    type: Date,
+  },
   jobVault: {
     type: Boolean,
     default: false,
