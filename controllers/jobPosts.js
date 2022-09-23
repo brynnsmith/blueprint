@@ -26,14 +26,21 @@ module.exports = {
       console.log(err);
     }
   },
+  getAddJob: async (req, res) => {
+    try {
+      res.render("addJob.ejs")
+    } catch (err) {
+      console.log(err);
+    }
+  },
   createJobPost: async (req, res) => {
     try {
-      // Upload image to cloudinary
-      const result = await cloudinary.uploader.upload(req.file.path);
+      /* Upload image to cloudinary
+      const result = await cloudinary.uploader.upload(req.file.path); */
 
       await JobPost.create({
-        image: result.secure_url,
-        cloudinaryId: result.public_id,
+        //image: result.secure_url,
+        //cloudinaryId: result.public_id,
         jobTitle: req.body.jobTitle,
         jobPostURL: req.body.jobPostURL,
         company: req.body.company,

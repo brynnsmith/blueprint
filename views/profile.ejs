@@ -7,50 +7,10 @@
               <p><strong>Email</strong>: <%= user.email %></p>
               <a href="/logout" class="col-3 btn btn-primary">Logout</a>
           </div>
-          <div class="mt-5">
-            <h2>Add a Job Post</h2>
-            <form action="/jobPost/createJobPost" enctype="multipart/form-data" method="POST">
-              <div class="mb-3">
-                <label for="jobTitle" class="form-label">Job Title</label>
-                <input type="text" class="form-control" id="jobTitle" name="jobTitle">
-              </div>
-              <div class="mb-3">
-                <label for="jobPostURL" class="form-label">Job Post URL</label>
-                <input type="text" class="form-control" id="jobPostURL" name="jobPostURL">
-              </div>
-              <div class="mb-3">
-                  <label for="company" class="form-label">Company</label>
-                  <input type="text" class="form-control" id="company" name="company">
-              </div>
-              <div class="mb-3">
-                <label for="companyURL" class="form-label">Company URL</label>
-                <input type="text" class="form-control" id="companyURL" name="companyURL">
-              </div>
-              <div class="mb-3">
-                <label for="jobLocation" class="form-label">Job Location</label>
-                <input type="text" class="form-control" id="jobLocation" name="jobLocation">
-              </div>
-              <div class="mb-3">
-                <label for="salary" class="form-label">Salary</label>
-                <input type="text" class="form-control" id="salary" name="salary">
-              </div>
-              <div class="mb-3">
-                <label for="description" class="form-label">Description</label>
-                <input type="text" class="form-control" id="description" name="description">
-              </div>
-              <div class="mb-3">
-                <label for="skillsRequired" class="form-label">Skills Required</label>
-                <input type="text" class="form-control" id="skillsRequired" name="skillsRequired">
-              </div>
-              <div class="mb-3">
-                <label for="imgUpload" class="form-label">Image</label>
-                <input type="file" class="form-control" id="imageUpload" name="file">
-              </div>
-              <button type="submit" class="btn btn-primary" value="Upload">Submit</button>
-            </form>
-          </div>
+          <br><br>
+          <a href="/addJob" class="btn btn-primary">Add a Job</a>
       </div>
-      <% console.log("test") %>
+
       <div class="col-6">
         <ul class="row list-unstyled">
         <% for(var i=0; i<jobPosts.length; i++) {%>
