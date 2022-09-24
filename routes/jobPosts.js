@@ -9,7 +9,12 @@ router.get("/:id", ensureAuth, jobPostsController.getJobPost);
 
 router.post("/createJobPost", upload.single("file"), jobPostsController.createJobPost);
 
+router.post("/createInterview", upload.single("file"), jobPostsController.createInterview);
+
 router.put("/likeJobPost/:id", jobPostsController.likeJobPost);
+
+// Update when updateJobStatus has been created
+router.put("/markApplied/:id", jobPostsController.markApplied);
 
 router.delete("/deleteJobPost/:id", jobPostsController.deleteJobPost);
 

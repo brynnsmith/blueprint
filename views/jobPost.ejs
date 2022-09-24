@@ -9,8 +9,8 @@
         <h2 class="mainJobTitle"><%= jobPost.jobTitle%></h2>
         <h4><%= jobPost.company%></h4>
       </section>
-      <h2 class="jobTitles">Job Description</h2>
-      <section class="jobDescriptionSection">
+      <h2 class="jobHead">Job Description</h2>
+      <section class="jobDescription jobSection">
         <div class="jobHalf">
           <h3>Job Title:</h3>
           <span><%= jobPost.jobTitle%></span>
@@ -33,51 +33,76 @@
         </div>
       </section>
 
-      <section class="jobStatusSection">
-        <h2 class="jobTitles">Job Status</h2>
-        <% if(jobPost.applied === false && jobPost.interview === false && jobPost.offer === false && jobPost.jobVault === false) { %>
-          <span class="jobStatus">Active</span>
-        <% } else if (jobPost.applied === true && jobPost.interview === false && jobPost.offer === false && jobPost.jobVault === false) { %>
-          <span class="jobStatus">Applied</span>
-          <span class=""><%= jobPost.dateApplied%></span>
-        <% } else if (jobPost.interview === true && jobPost.offer === false && jobPost.offerAccepted === false && jobPost.jobVault === false) { %>
-          <span class="">Applied</span>
-          <span class=""><%= jobPost.dateApplied%></span>
-          <span class="jobStatus">Interviewing</span>
-          <span class=""><%= jobPost.intDate%></span>
-        <% } else if (jobPost.offer === true && jobPost.offerAccepted === false && jobPost.jobVault === false) { %>
-          <span class="">Applied</span>
-          <span class=""><%= jobPost.dateApplied%></span>
-          <span class="">Interviewed</span>
-          <span class=""><%= jobPost.intDate%></span>
-          <span class="jobStatus">Negotiating Offer</span>
-          <span class=""><%= jobPost.dateOffered%></span>
-        <% } else if (jobPost.offerAccepted === true && jobPost.jobVault === false) { %>
-          <span class="jobStatus">Offer Accepted! Yay!</span>
-          <span class=""><%= jobPost.dateAccepted%></span>
-        <% } else if (jobPost.jobVault === true) { %>
-          <span class="jobStatus">Vaulted</span>
-        <% }
-        %> 
+      <section class="jobSection">
+        <h2 class="jobHead">Job Status</h2>
+        <div class="jobHalf">
+          <% if(jobPost.applied === false && jobPost.intview === false && jobPost.offer === false && jobPost.jobVault === false) { %>
+            <span class="jobStatus">Active</span>
+          <% } else if (jobPost.applied === true && jobPost.intview === false && jobPost.offer === false && jobPost.jobVault === false) { %>
+            <span class="jobStatus">Applied</span>
+          <% } else if (jobPost.intview === true && jobPost.offer === false && jobPost.offerAccepted === false && jobPost.jobVault === false) { %>
+            <span class="jobStatus">Interviewing</span>
+          <% } else if (jobPost.offer === true && jobPost.offerAccepted === false && jobPost.jobVault === false) { %>
+            <span class="jobStatus">Negotiating Offer</span>
+          <% } else if (jobPost.offerAccepted === true && jobPost.jobVault === false) { %>
+            <span class="jobStatus">Offer Accepted! Yay!</span>
+          <% } else if (jobPost.jobVault === true) { %>
+            <span class="jobStatus">Vaulted</span>
+          <% }
+          %> 
+        </div>
+        <div>
+          <form class="" action="/jobPost/updateJobStatus/<%= jobPost.id %>?_method=PUT" method="POST" >  
+          <label for="selectJobStatus" class="form-label">Update Job Status:</label>
+          <select name="selectJobStatus" id="selectJobStatus">
+            <option value="active">Active</option>
+            <option value="applied">Applied</option>
+            <option value="interview">Interview</option>
+            <option value="offer">Offer</option>
+            <option value="vaulted">Vaulted</option>
+          </select>
+              <button class="btn btn-primary" type="submit">Submit</button>
+            </form>
+          <ul>
+            <li>Applied</li>  
+            <li>Interviewed</li>
+            <li>Offered</li>
+            <li>Accepted</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="jobSection">
+        <h2 class="jobHead">Interest Level</h2>
+        <div class="jobHalf">
+          <div class="slidecontainer">
+            <input type="range" min="1" max="100" value="50" oninput="rangeValue.innerText = this.value" class="interestLevel" id="interestLevel" name="interestLevel">
+            <span class="rangeValue">50</span>
+          </div>
+        </div>
+        <div class="jobHalf">
+            <span><%= jobPost.interestLevel%></span>
+        </div>
       </section>
     
       <section class="interviewSection">
-        <h2 class="jobTitles">Interviews</h2> 
+        <h2 class="jobHead">Interviews</h2> 
         <%# TODO: Add Interview Section %>
+        <a href="/addInterview" class="btn btn-primary">Add an Interview</a>
       </section>
 
       <section class="contactsSection">
-        <h2 class="jobTitles">Contacts</h2>
+        <h2 class="jobHead">Contacts</h2>
         <%# TODO: Add Contacts Section %>
       </section>
 
       <section class="networkingSection">
-        <h2 class="jobTitles">Networking</h2> 
+        <h2 class="jobHead">Networking</h2> 
         <%# TODO: Add Networking Section %>
       </section>
 
       <%# TODO: Add form to add notes to job post %>
-      <h2 class="jobTitles">Additional Notes</h2>
+      <h2 class="jobHead">Additional Notes</h2>
       
 
       <div class="">

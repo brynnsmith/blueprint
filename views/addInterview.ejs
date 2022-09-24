@@ -1,0 +1,57 @@
+<%- include('partials/header') -%>
+<div class="">
+  <div class="">
+    <section class="jobPostSection">
+        <div class="mt-5">
+            <h2>Add an Interview</h2>
+            <form action="/jobPost/createInterview" enctype="multipart/form-data" method="POST">
+              <div class="mb-3">
+                <label for="intDate" class="form-label">Interview Date</label>
+                <input type="text" class="form-control" id="intDate" name="intDate">
+              </div>
+              <div class="mb-3">
+                <label for="intTime" class="form-label">Interview Time</label>
+                <input type="text" class="form-control" id="intTime" name="intTime">
+              </div>
+              <div class="mb-3">
+                  <label for="intLocation" class="form-label">Interview Location</label>
+                  <input type="text" class="form-control" id="intLocation" name="intLocation">
+              </div>
+              <div class="mb-3">
+                <label for="intLinkURL" class="form-label">Interview Link URL</label>
+                <input type="text" class="form-control" id="intLinkURL" name="intLinkURL">
+              </div>
+              <div class="mb-3">
+                <label for="intType" class="form-label">Interview Type</label>
+                <input type="text" class="form-control" id="intType" name="intType">
+              </div>
+              <div class="mb-3">
+                <label for="intPerson" class="form-label">Person Interviewing With</label>
+                <input type="text" class="form-control" id="intPerson" name="intPerson">
+              </div>
+              <div class="mb-3">
+                <label for="intNotes" class="form-label">Additional Notes</label>
+                <input type="text" class="form-control" id="intNotes" name="intNotes">
+              </div>
+              <button type="submit" class="btn btn-primary" value="Upload">Submit</button>
+            </form>
+          </div>
+      
+    </section>
+    <div class="">
+      <a class="btn btn-primary" href="/profile">Return to Profile</a>
+      <a class="btn btn-primary" href="/feed">Return to Feed</a>
+    </div>
+  </div>
+</div>
+
+<%- include('partials/footer') -%>
+
+
+
+<%# IMAGE UPLOADER
+
+<div class="mb-3">
+    <label for="imgUpload" class="form-label">Image</label>
+    <input type="file" class="form-control" id="imageUpload" name="file">
+</div */ %>

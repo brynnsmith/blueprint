@@ -61,7 +61,7 @@ const JobPostSchema = new mongoose.Schema({
     type: Boolean,
     default: false,
   },
-  interview: {
+  intview: {
     type: Boolean,
     default: false,
   },
@@ -82,6 +82,9 @@ const JobPostSchema = new mongoose.Schema({
   jobVault: {
     type: Boolean,
     default: false,
+  },
+  interestLevel: {
+    type: String,
   },
   image: {
     type: String,
