@@ -29,7 +29,7 @@ module.exports = {
   },
   getAddJob: async (req, res) => {
     try {
-      res.render("addJob.ejs")
+      await res.render("addJob.ejs")
     } catch (err) {
       console.log(err);
     }
@@ -96,7 +96,7 @@ module.exports = {
       // Find post by id
       let jobPost = await JobPost.findById({ _id: req.params.id });
       // Delete image from cloudinary
-      await cloudinary.uploader.destroy(jobPost.cloudinaryId);
+      //await cloudinary.uploader.destroy(jobPost.cloudinaryId);
       // Delete post from db
       await JobPost.remove({ _id: req.params.id });
       console.log("Deleted Post");
@@ -105,10 +105,19 @@ module.exports = {
       res.redirect("/profile");
     }
   },
+ 
+getEditJob: async (req,res)  => {
+  try {
+    const jobPost = await JobPost.findById(req.params.id);
+    await res.render("editJob.ejs", { jobPost: jobPost, user: req.user })
+  } catch (err) {
+    console.log(err)
+  }
+},
 
 getAddInterview: async (req, res) => {
     try {
-      res.render("addInterview.ejs")
+      await res.render("addInterview.ejs")
     } catch (err) {
       console.log(err);
     }
@@ -127,7 +136,9 @@ createInterview: async (req, res) => {
       intCompleted: req.body.intCompleted,
       user: req.user.id,
     });
+
       console.log("Interview has been added!");
+      // TODO: redirect this to the job post it was added to
       res.redirect(`/profile`);
     } catch (err) {
       console.log(err);

@@ -17,6 +17,73 @@ span, .mainJobTitle, #rangeValue {
 
 /********* LAYOUT **********/
 
+.sectionInlay {
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: inset 0px 0px 10px #cfcfcf;
+}
+
+.jobBoard {
+    display: grid;
+    column-gap: 50px;
+}
+
+
+/********* USER PROFILE *******/
+.userArea {
+    margin: 30px;
+}
+.userInfo {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+.displayPic {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3.8em;
+    font-weight: 900;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background-color: #17134d;
+    float: left;
+    margin-right: 20px;
+    color: white;
+}
+
+.companyLogo {
+    width: 40px;
+    height: 40px;
+    font-size: 1.8em;
+}
+.userInfoText {
+    display: block;
+    line-height: 1.6;
+}
+.nextInterview, .nextCoffeeChat {
+    margin: 0 30px;
+}
+
+.jobListItem {
+    list-style-type: none;
+    background-color: #f9f9f9;
+    padding: 12px 10px 6px 10px;
+    margin:  0 0 5px 0;
+}
+
+.jobList {
+    padding: 0;
+}
+.jobListText {
+    font-size: 1em;
+    line-height: 1;
+}
+.jobListTitle {
+    font-weight: 600;
+}
 
 
 /********* JOB POST **********/
@@ -34,14 +101,6 @@ span, .mainJobTitle, #rangeValue {
 }
 .mainJobTitle {
     margin: 5px 0 3px 0;
-}
-.companyLogo {
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-    background-color: aqua;
-    float: left;
-    margin-right: 30px;
 }
 .jobSection {
     padding: 10px 0;
@@ -74,4 +133,116 @@ span, .mainJobTitle, #rangeValue {
 
 .interestLevel, .slider {
     vertical-align: middle;
+}
+
+
+.editJobPostSection {
+    display: flex;
+    flex-flow: row-wrap;
+}
+.column2 {
+    width: 50%;
+}
+
+
+
+
+/************* SLIDE IN MENU ************/
+
+.fadeInDown {
+  opacity: 1 !important;
+  transform: translateY(40px) !important;
+}
+
+#menu-btn {
+  position: absolute;
+  top: 50px;
+  right: 20px;
+  padding: 10px 20px;
+  border: 1px solid transparent;
+  /* To avoid icon movement on hover */
+  font-weight: 300;
+  user-select: none;
+  transition: border-color 0.3s;
+  transform: translateY(-50%);
+}
+
+#menu-btn i {
+    margin-left: 10px;
+    color:  #17134d;
+}
+
+#menu-btn:hover {
+    cursor: pointer;
+    border-color: #fff;
+}
+
+#menu__panel {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  width: 300px;
+  z-index: 9999;
+  background-color: #03002e;
+  box-shadow: -2px 2px 20px rgba(#000, 0.5);
+  user-select: none;
+  transform: translateX(300px);
+  transition: transform 0.5s;
+}
+
+.menu {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-content: center;
+  top: 40px;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.menu-item {
+  width: 100%;
+  height: 80px;
+  opacity: 0;
+  transform: translateY(0);
+  transition: all 0.3s;
+}
+
+.menu-item i {
+    margin: 15px 20px 0 20px;
+}
+
+.menu-item a {
+    display: inline-block;
+    width: 100%;
+    height: 80px;
+    padding-left: 50px;
+    line-height: 80px;
+    color: #f9f9f9;
+    text-decoration: none;
+    font-size: 1.4em;
+    font-weight: 600;
+}
+
+.menu-item:hover {
+    background-color: #17134d;
+}
+
+.menu__close {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  padding: 5px 10px;
+  transition: transform 0.5s;
+  color: #f9f9f9;
+}
+
+.menu__close:hover {
+    cursor: pointer;
 }

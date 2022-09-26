@@ -1,33 +1,55 @@
 <%- include('partials/header') -%>
-<div class="container">
-  <div class="row mt-5">
-      <div class="col-6">
-          <div>
-              <p><strong>User Name</strong>: <%= user.userName %></p>
-              <p><strong>Email</strong>: <%= user.email %></p>
-              <a href="/logout" class="col-3 btn btn-primary">Logout</a>
+  <section class="userArea">
+      <section class="sectionInlay userInfo">
+          <div class="displayPic">
+            <%= user.userName[0] %>
+            <%#<img src="" alt="user's profile image">%>
           </div>
-          <br><br>
-          <a href="/addJob" class="btn btn-primary">Add a Job</a>
-      </div>
+          <div class="userInfoTextArea">
+              <span class="userInfoText"><strong>User Name</strong>: <%= user.userName %></span>
+              <span class="userInfoText"><strong>Job Title</strong>: <%= user.jobTitle %></span>
+          </div>
+          <div class="nextInterview">
+            Next Interview:
+          </div>
+          <div class="nextCoffeeChat">
+            Next Coffee Chat:
+          </div>
+      </section>
 
-      <div class="col-6">
-        <ul class="row list-unstyled">
-        <% for(var i=0; i<jobPosts.length; i++) {%>
-          <li class="col-6 justify-content-between mt-5">
-            <a href="/jobPost/<%= jobPosts[i]._id%>">
-              <img class="img-fluid" src="<%= jobPosts[i].image%>">
-              <h2><%= jobPosts[i].jobTitle%></h2>
-              <h2><%= jobPosts[i].company%></h2>
-            </a>
-          </li>
-        <% } %>
-        </ul>
-        <div class="row justify-content-center mt-5">
-          <a class="btn btn-primary" href="/feed">Return to Feed</a>
-        </div>  
-      </div>  
-    </div>
-  </div>
-</div>
+      <br><br>
+      <%# Job Feed %>
+      <h2>My Job Board</h2>
+          <a href="/addJob" class="btn btn-primary">Add a Job</a>
+      <section class="sectionInlay jobBoard">
+        <div class="grid-item">
+          <ul class="jobList">
+          <% for(var i=0; i<jobPosts.length; i++) {%>
+            <li class="jobListItem">
+              <a href="/jobPost/<%= jobPosts[i]._id%>" class="">
+                <div class="displayPic companyLogo">
+                  <%= jobPosts[i].company[0]%>
+                </div>
+                <h2 class="jobListText jobListTitle"><%= jobPosts[i].jobTitle%></h2>
+                <h2 class="jobListText"><%= jobPosts[i].company%></h2>
+              </a>
+            </li>
+          <% } %>
+          </ul>
+      </div>
+      <div class="grid-item">
+        Testing
+      </div>
+      </section>
+
+  </section>
 <%- include('partials/footer') -%>
+
+
+        <%#
+          <div class="">
+            <a class="btn btn-primary" href="/feed">Return to Feed</a>
+          </div>  
+        </div>
+        %>
+        

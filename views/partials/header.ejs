@@ -31,6 +31,22 @@
         <h1 class=""><a href="/profile">Blueprint</a></h1>
         <span>Your job hunt and networking organizer</span>
       </div>
+
+      <div id="menu-btn" onClick="showMenu(true)"><i class="fa fa-bars fa-2x"></i></div>
+      <div id="menu__panel">
+          <i id="menu__close" class="menu__close fa fa-angle-left fa-2x" onClick="showMenu(false)"></i>
+          <ul class="menu">
+            <li class="menu-item"><a href="/profile"><i class="fa fa-home fa-2x"></i>Home</a></li>
+            <li class="menu-item"><a href="/addJob"><i class="fa fa-plus fa-2x"></i>Add a Job</a></li>
+            <li class="menu-item"><a href="/jobPosts"><i class="fa fa-briefcase fa-2x"></i>Job Bank</a></li>
+            <li class="menu-item"><a href="/interviews"><i class="fa fa-calendar-check fa-2x"></i>Interview</a></li>
+            <li class="menu-item"><a href="/contacts"><i class="fa fa-users fa-2x"></i>Network</a></li>
+            <li class="menu-item"><a href="/editProfile"><i class="fa fa-cog fa-2x"></i>Edit Profile</a></li>
+            <li class="menu-item"><a href="/logout"><i class="fa fa-user fa-2x" aria-hidden="true"></i>Logout</a></li>
+          </ul>
+      </div>
+
     </header>
+    <script src="style.js"></script>
   </body>
 </html>

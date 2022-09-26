@@ -3,11 +3,12 @@
   <div class="">
     <section class="jobPostSection">
       <section class="jobHeader">
-        <div class="companyLogo">
+        <div class="companyLogo displayPic">
           <%= jobPost.companyLogo%>
         </div>
         <h2 class="mainJobTitle"><%= jobPost.jobTitle%></h2>
         <h4><%= jobPost.company%></h4>
+        <a href="/editJob" class="btn btn-primary">Edit Job</a>
       </section>
       <h2 class="jobHead">Job Description</h2>
       <section class="jobDescription jobSection">
@@ -63,12 +64,6 @@
           </select>
               <button class="btn btn-primary" type="submit">Submit</button>
             </form>
-          <ul>
-            <li>Applied</li>  
-            <li>Interviewed</li>
-            <li>Offered</li>
-            <li>Accepted</li>
-          </ul>
         </div>
       </section>
 
@@ -89,6 +84,20 @@
         <h2 class="jobHead">Interviews</h2> 
         <%# TODO: Add Interview Section %>
         <a href="/addInterview" class="btn btn-primary">Add an Interview</a>
+        <% if (jobPost.intview === true) { %>
+        <section class="interviewPanel">
+          <div class="interviewSingle">
+
+          </div>
+          <div class="interviewSingle">
+
+          </div>
+          <div class="interviewSingle">
+
+          </div>
+        </section>
+        <% }
+        %>
       </section>
 
       <section class="contactsSection">

@@ -6,6 +6,7 @@ const { ensureAuth, ensureGuest } = require("../middleware/auth");
 
 //Post Routes - simplified for now
 router.get("/:id", ensureAuth, jobPostsController.getJobPost);
+router.get("/:id/editJob", ensureAuth, jobPostsController.getJobPost);
 
 router.post("/createJobPost", upload.single("file"), jobPostsController.createJobPost);
 
