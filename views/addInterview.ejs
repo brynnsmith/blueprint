@@ -6,6 +6,15 @@
             <h2>Add an Interview</h2>
             <form action="/jobPost/createInterview" enctype="multipart/form-data" method="POST">
               <div class="mb-3">
+                <label for="company" class="form-label">Which Company?</label>
+                <select name="company" id="company">
+                    <option selected disabled>Please select a company</option> 
+                  <% for (let i = 0; i < jobPosts.length; i++) { %>
+                    <option><%= jobPosts[i].company %></option> 
+                  <% } %>
+                </select>
+              </div>
+              <div class="mb-3">
                 <label for="intDate" class="form-label">Interview Date</label>
                 <input type="text" class="form-control" id="intDate" name="intDate">
               </div>

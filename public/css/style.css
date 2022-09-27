@@ -1,4 +1,11 @@
 /********* MAIN STYLES **********/
+body {
+    font-family: 'Inter', sans-serif;
+}
+
+h1 {
+    font-family: 'Architects Daughter', cursive;
+}
 
 h3 {
     font-size: 1rem;
@@ -14,22 +21,64 @@ span, .mainJobTitle, #rangeValue {
     font-weight: 600;
 }
 
+a:link {
+    text-decoration: none;
+}
+
+
+/********* HEADER **********/
+.mainHeader {
+    background-color: #17134d;
+    height: 60px;
+    color: #f9f9f9;
+    box-shadow: 0px 0px 6px #363636;
+}
+.headerContainer {
+    display: flex;
+    padding-left: 50px;
+    align-items: center;
+}
+.siteName {
+    color: white;
+    font-size: 2rem;
+    line-height: 1.8;
+}
+.siteTagline {
+    font-weight: 400;
+    margin: -8px 0 0 20px;
+    font-size: 0.9rem;
+}
 
 /********* LAYOUT **********/
+.main {
+    padding: 5px;
+    margin-top: 10px;
+}
 
 .sectionInlay {
     padding: 20px;
     border-radius: 10px;
-    box-shadow: inset 0px 0px 10px #cfcfcf;
-}
-
-.jobBoard {
-    display: grid;
-    column-gap: 50px;
+    box-shadow: inset 0px 0px 10px #a3a3a3;
+    background-color: #ffffff;
 }
 
 
 /********* USER PROFILE *******/
+.add-btn {
+    margin: -7px 10px 0 10px;
+    color: #2b57e7;
+    display: flex;
+    align-items: center;
+}
+.add-btn:hover {
+    color: #1b49ac;
+}
+.addBtnText {
+    font-size: 1em;
+    font-family: 'Inter', sans-serif;
+    margin: 0 8px;
+}
+
 .userArea {
     margin: 30px;
 }
@@ -48,15 +97,20 @@ span, .mainJobTitle, #rangeValue {
     width: 80px;
     height: 80px;
     border-radius: 50%;
-    background-color: #17134d;
+    background-color: #1b49ac;
     float: left;
-    margin-right: 20px;
+    margin-right: 15px;
     color: white;
 }
 
+.displayPicText {
+    font-weight: 800;
+}
+
 .companyLogo {
-    width: 40px;
-    height: 40px;
+    margin: -3px 15px 0 0;
+    width: 45px;
+    height: 45px;
     font-size: 1.8em;
 }
 .userInfoText {
@@ -66,23 +120,44 @@ span, .mainJobTitle, #rangeValue {
 .nextInterview, .nextCoffeeChat {
     margin: 0 30px;
 }
+.jobBoard {
+    padding: 12px;
+    margin-bottom: 40px;
+}
+
+.jobBoardHeader {
+    display: flex;
+    align-items: center;
+    color:  #17134d;
+    margin: 0 0 10px 0;
+}
+
+.profileHeader {
+    font-weight: 700;
+    font-size: 1.6em;
+}
 
 .jobListItem {
     list-style-type: none;
-    background-color: #f9f9f9;
+    background-color: #e8effc;
     padding: 12px 10px 6px 10px;
     margin:  0 0 5px 0;
+    border-radius: 10px;
+    display: flex;
+
 }
 
 .jobList {
+    margin-bottom: 0;
     padding: 0;
 }
 .jobListText {
     font-size: 1em;
-    line-height: 1;
+    line-height: 0.9;
+    color: #141414;
 }
 .jobListTitle {
-    font-weight: 600;
+    font-weight: 700;
 }
 
 
@@ -95,6 +170,7 @@ span, .mainJobTitle, #rangeValue {
     padding: 50px;
     border-radius: 10px;
     box-shadow: 0px 0px 7px #b8b8b8;
+    background-color: #ffffff;
 }
 .jobHeader {
     margin: 0 0 20px 0;
@@ -147,6 +223,8 @@ span, .mainJobTitle, #rangeValue {
 
 
 
+
+
 /************* SLIDE IN MENU ************/
 
 .fadeInDown {
@@ -156,7 +234,7 @@ span, .mainJobTitle, #rangeValue {
 
 #menu-btn {
   position: absolute;
-  top: 50px;
+  top: 30px;
   right: 20px;
   padding: 10px 20px;
   border: 1px solid transparent;
@@ -169,7 +247,7 @@ span, .mainJobTitle, #rangeValue {
 
 #menu-btn i {
     margin-left: 10px;
-    color:  #17134d;
+    color:  #fdfdfd;
 }
 
 #menu-btn:hover {
@@ -208,25 +286,29 @@ span, .mainJobTitle, #rangeValue {
 
 .menu-item {
   width: 100%;
-  height: 80px;
+  height: 70px;
   opacity: 0;
   transform: translateY(0);
   transition: all 0.3s;
 }
 
+.menu__icon {
+    font-size: 26px;
+}
+
 .menu-item i {
-    margin: 15px 20px 0 20px;
+    margin: 0 20px;
 }
 
 .menu-item a {
     display: inline-block;
     width: 100%;
-    height: 80px;
+    height: 70px;
     padding-left: 50px;
-    line-height: 80px;
+    line-height: 70px;
     color: #f9f9f9;
     text-decoration: none;
-    font-size: 1.4em;
+    font-size: 1.2em;
     font-weight: 600;
 }
 

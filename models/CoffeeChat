@@ -1,43 +1,36 @@
 const mongoose = require("mongoose");
 
-const InterviewSchema = new mongoose.Schema({
+const CoffeeChatSchema = new mongoose.Schema({
 
-  intDate: {
+  chatDate: {
     type: String,
     required: true,
   },
-  intTime: {
+  chatTime: {
     type: String,
     required: true,
   },
-  intLocation: {
+  chatLocation: {
      type: String,
   },
-  intLinkURL: {
+  chatLinkURL: {
     type: String,
   },
-  intType: {
+  chatNotes: {
     type: String,
   },
-  intPerson: {
-    type: String,
-  },
-  intNotes: {
-    type: String,
-  },
-  intCompleted: {
+  chatCompleted: {
     type: Boolean,
     default: false,
   },
-  jobPost: {
+  contact: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: "JobPost",
+    ref: "Contact",
   },
   user: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "User",
   }
-
 });
 
-module.exports = mongoose.model("Interview", InterviewSchema);
+module.exports = mongoose.model("CoffeeChat", CoffeeChatSchema);

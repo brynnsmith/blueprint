@@ -1,4 +1,5 @@
 <%- include('partials/header') -%>
+<section class="main">
   <section class="userArea">
       <section class="sectionInlay userInfo">
           <div class="displayPic">
@@ -19,30 +20,64 @@
 
       <br><br>
       <%# Job Feed %>
-      <h2>My Job Board</h2>
-          <a href="/addJob" class="btn btn-primary">Add a Job</a>
+      <div class="jobBoardHeader">
+        <h2 class="profileHeader">My Job Bank</h2>
+        <a href="/addJob" class="btn add-btn"><i class="fa fa-circle-plus fa-2x"></i> <span class="addBtnText">Add a Job</span></a>
+      </div>
+       <%# TODO: Randomize colour for company logo circle %>
       <section class="sectionInlay jobBoard">
         <div class="grid-item">
           <ul class="jobList">
           <% for(var i=0; i<jobPosts.length; i++) {%>
-            <li class="jobListItem">
-              <a href="/jobPost/<%= jobPosts[i]._id%>" class="">
+            <a href="/jobPost/<%= jobPosts[i]._id%>" class="">
+              <li class="jobListItem">
                 <div class="displayPic companyLogo">
-                  <%= jobPosts[i].company[0]%>
+                  <span class="displayPicText">
+                    <%= jobPosts[i].company[0]%>
+                  </span>
                 </div>
-                <h2 class="jobListText jobListTitle"><%= jobPosts[i].jobTitle%></h2>
-                <h2 class="jobListText"><%= jobPosts[i].company%></h2>
-              </a>
-            </li>
+                <div>
+                  <h2 class="jobListText jobListTitle"><%= jobPosts[i].jobTitle%></h2>
+                  <h2 class="jobListText"><%= jobPosts[i].company%></h2>
+                </div>
+              </li>
+            </a>
           <% } %>
           </ul>
+        </div>
+      </section>
+
+      <%# Interview Feed %>
+      <div class="jobBoardHeader">
+        <h2 class="profileHeader">Interviews</h2>
+        <a href="/addInterview" class="btn add-btn"><i class="fa fa-circle-plus fa-2x"></i> <span class="addBtnText">Add an Interview</span></a>
       </div>
-      <div class="grid-item">
-        Testing
-      </div>
+       <%# TODO:  %>
+      <section class="sectionInlay jobBoard">
+        <div class="grid-item">
+          <ul class="jobList">
+          <% for(var i=0; i<interviews.length; i++) {%>
+            <a href="/interview/<%= interviews[i]._id%>" class="">
+              <li class="jobListItem">
+                <div class="displayPic companyLogo">
+                  <span class="displayPicText">
+                    <%= jobPosts[i].company[0]%>
+                  </span>
+                </div>
+                <div>
+                  <h2 class="jobListText jobListTitle"><%= interviews[i].intDate%></h2>
+                  <h2 class="jobListText"><%= interviews[i].intTime%> @ <%= interviews[i].intLocation%></h2>
+                  <h2 class="jobListText"><%= jobPosts[i].company%></h2>
+                </div> 
+              </li>
+            </a>
+          <% } %>
+          </ul>
+        </div>
       </section>
 
   </section>
+</section>
 <%- include('partials/footer') -%>
 
 

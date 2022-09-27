@@ -5,8 +5,9 @@ const Interview = require("../models/Interview");
 module.exports = {
   getProfile: async (req, res) => {
     try {
-      const jobPosts = await JobPost.find({ user: req.user.id });
-      res.render("profile.ejs", { jobPosts: jobPosts, user: req.user });
+      const jobPosts = await JobPost.find({ user: req.user.id }).sort({ createdAt: "desc" }).lean();
+      const interviews = await Interview.find({ user: req.user.id }).sort({ createdAt: "desc" }).lean();
+      res.render("profile.ejs", { jobPosts: jobPosts, user: req.user, interviews: interviews });
     } catch (err) {
       console.log(err);
     }
@@ -22,7 +23,8 @@ module.exports = {
   getJobPost: async (req, res) => {
     try {
       const jobPost = await JobPost.findById(req.params.id);
-      res.render("jobPost.ejs", { jobPost: jobPost, user: req.user });
+      const interview = await Interview.findById(req.params.id);
+      res.render("jobPost.ejs", { jobPost: jobPost, user: req.user, interview: interview });
     } catch (err) {
       console.log(err);
     }
@@ -115,9 +117,19 @@ getEditJob: async (req,res)  => {
   }
 },
 
+getInterview: async (req, res) => {
+  try {
+    const interview = await Interview.findById(req.params.id);
+    res.render("interview.ejs", { interview: interview, user: req.user });
+  } catch (err) {
+    console.log(err);
+  }
+},
+
 getAddInterview: async (req, res) => {
     try {
-      await res.render("addInterview.ejs")
+      const jobPosts = await JobPost.find({ user: req.user.id }).sort({ company: 1 }).lean();
+      await res.render("addInterview.ejs", { jobPosts: jobPosts, user: req.user })
     } catch (err) {
       console.log(err);
     }
