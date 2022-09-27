@@ -5,8 +5,9 @@ const Interview = require("../models/Interview");
 module.exports = {
   getProfile: async (req, res) => {
     try {
-      const jobPosts = await JobPost.find({ user: req.user.id }).sort({ createdAt: "desc" }).lean();
-      const interviews = await Interview.find({ user: req.user.id }).sort({ createdAt: "desc" }).lean();
+      const jobPosts = await JobPost.find({ user: req.user.id }).sort({ dateAdded: "desc" }).lean();
+      const interviews = await Interview.find({ user: req.user.id }).sort({ intDate: 1 }).lean();
+      //const events = await Event.find({ user: req.user.id }).sort({intDate: 1 }).lean();
       res.render("profile.ejs", { jobPosts: jobPosts, user: req.user, interviews: interviews });
     } catch (err) {
       console.log(err);
@@ -96,7 +97,7 @@ module.exports = {
   deleteJobPost: async (req, res) => {
     try {
       // Find post by id
-      let jobPost = await JobPost.findById({ _id: req.params.id });
+      //let jobPost = await JobPost.findById({ _id: req.params.id });
       // Delete image from cloudinary
       //await cloudinary.uploader.destroy(jobPost.cloudinaryId);
       // Delete post from db
@@ -146,6 +147,8 @@ createInterview: async (req, res) => {
       intPerson: req.body.intPerson,
       intNotes: req.body.intNotes,
       intCompleted: req.body.intCompleted,
+      intCompany: req.body.intCompany,
+      intPosition: req.body.intPosition,
       user: req.user.id,
     });
 
@@ -155,6 +158,110 @@ createInterview: async (req, res) => {
     } catch (err) {
       console.log(err);
     }
+},
+
+
+
+
+// Networking 
+
+getAddContact: async (req, res) => {
+  try {
+    await res.render("addContact.ejs")
+  } catch (err) {
+    console.log(err);
+  }
+},
+createContact: async (req, res) => {
+  try {
+  //const jobPost = await JobPost.findById({ _id: req.params.id });
+    await Contact.create({
+      firstName: req.body.firstName,
+      lastName: req.body.lastName,
+      company: req.body.company,
+      position: req.body.position,
+      email: req.body.email,
+      phone: req.body.phone,
+      linkedInURL: req.body.linkedInURL,
+      twitterURL: req.body.twitterURL,
+      githubURL: req.body.githubURL,
+      facebookURL: req.body.facebookURL,
+      connection: req.body.connection,
+      contactNotes: req.body.contactNotes,
+      coffeeChat: req.body.coffeeChat,
+      coffeeChatDate: req.body.coffeeChatDate,
+      followUp: req.body.followUp,
+      //jobPost: req.jobPost.id,
+      user: req.user.id,
+    });
+
+      console.log("Contact has been added!");
+      // TODO: redirect this to the job post it was added to
+      res.redirect(`/profile`);
+    } catch (err) {
+      console.log(err);
+    }
+},
+getContact: async (req, res) => {
+  try {
+      const contact = await Contact.findById({ _id: req.params.id });
+      const jobPost = await JobPost.findById({ _id: req.params.id });
+      res.render("contact.ejs", { contact: contact, user: req.user, jobPost: jobPost });
+  } catch (err) {
+      console.log(err);
+  }
+},
+deleteContact: async (req, res) => {
+  try {
+      //const contact = await Contact.findById({ _id: req.params.id });
+      await Contact.remove({ _id:req.params.id });
+      console.log('Deleted contact!')
+  } catch (err) {
+      console.log(err);
+  }
+},
+getAddEvent: async (req, res) => {
+  try {
+    await res.render("addEvent.ejs")
+  } catch (err) {
+    console.log(err);
+  }
+},
+createEvent: async (req, res) => {
+  try {
+    await Event.create({
+      eventDate: req.body.eventDate,
+      eventTime: req.body.eventTime,
+      eventLocation: req.body.eventLocation,
+      eventLinkURL: req.body.eventLinkURL,
+      eventType: req.body.eventType,
+      eventNotes: req.body.eventNotes,
+      user: req.user.id,
+    });
+
+      console.log("Event has been added!");
+      // TODO: redirect this to the job post it was added to
+      res.redirect(`/profile`);
+    } catch (err) {
+      console.log(err);
+    }
+},
+getEvent: async (req, res) => {
+  try {
+      const event = await Event.findById({ _id: req.params.id });
+      res.render("event.ejs", { event: event, user: req.user });
+  } catch (err) {
+      console.log(err);
+  }
+},
+deleteEvent: async (req, res) => {
+  try {
+      await Event.remove({ _id:req.params.id });
+      console.log('Deleted contact!')
+  } catch (err) {
+      console.log(err);
+  }
 }
+
 
 };

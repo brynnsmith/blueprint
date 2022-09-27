@@ -24,7 +24,7 @@
         <h2 class="profileHeader">My Job Bank</h2>
         <a href="/addJob" class="btn add-btn"><i class="fa fa-circle-plus fa-2x"></i> <span class="addBtnText">Add a Job</span></a>
       </div>
-       <%# TODO: Randomize colour for company logo circle %>
+       <%# TODO: Update colour based on interest level, maybe add a special marking or layout so it isn't entirely colour dependent %>
       <section class="sectionInlay jobBoard">
         <div class="grid-item">
           <ul class="jobList">
@@ -52,6 +52,36 @@
         <h2 class="profileHeader">Interviews</h2>
         <a href="/addInterview" class="btn add-btn"><i class="fa fa-circle-plus fa-2x"></i> <span class="addBtnText">Add an Interview</span></a>
       </div>
+      <section class="sectionInlay jobBoard">
+        <div class="grid-item">
+          <ul class="jobList">
+          <% for(var i=0; i<interviews.length; i++) {%>
+            <a href="/interview/<%= interviews[i]._id%>" class="">
+              <li class="jobListItem">
+                <div class="displayPic companyLogo">
+                  <span class="displayPicText">
+                    <%= interviews[i].intCompany[0]%>
+                  </span>
+                </div>
+                <div>
+                  <h2 class="jobListText jobListTitle"><%= interviews[i].intDate.toDateString()%></h2>
+                   <%# TODO:  Convert time from military to standard%>
+                  <h2 class="jobListText"><%= interviews[i].intTime %>
+                      @ <%= interviews[i].intLocation%></h2>
+                  <h2 class="jobListText"><%= interviews[i].intCompany%></h2>
+                </div> 
+              </li>
+            </a>
+          <% } %>
+          </ul>
+        </div>
+      </section>
+
+      <%# Coffee Chat Feed %>
+      <div class="jobBoardHeader">
+        <h2 class="profileHeader">Coffee Chats / Networking</h2>
+        <a href="/addInterview" class="btn add-btn"><i class="fa fa-circle-plus fa-2x"></i> <span class="addBtnText">Add an Interview</span></a>
+      </div>
        <%# TODO:  %>
       <section class="sectionInlay jobBoard">
         <div class="grid-item">
@@ -61,13 +91,13 @@
               <li class="jobListItem">
                 <div class="displayPic companyLogo">
                   <span class="displayPicText">
-                    <%= jobPosts[i].company[0]%>
+                    <%= interviews[i].intCompany[0]%>
                   </span>
                 </div>
                 <div>
-                  <h2 class="jobListText jobListTitle"><%= interviews[i].intDate%></h2>
+                  <h2 class="jobListText jobListTitle"><%= interviews[i].intDate.toDateString()%></h2>
                   <h2 class="jobListText"><%= interviews[i].intTime%> @ <%= interviews[i].intLocation%></h2>
-                  <h2 class="jobListText"><%= jobPosts[i].company%></h2>
+                  <h2 class="jobListText"><%= interviews[i].intCompany%></h2>
                 </div> 
               </li>
             </a>

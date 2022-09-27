@@ -6,8 +6,8 @@
             <h2>Add an Interview</h2>
             <form action="/jobPost/createInterview" enctype="multipart/form-data" method="POST">
               <div class="mb-3">
-                <label for="company" class="form-label">Which Company?</label>
-                <select name="company" id="company">
+                <label for="intCompany" class="form-label">Which Company?</label>
+                <select name="intCompany" id="intCompany">
                     <option selected disabled>Please select a company</option> 
                   <% for (let i = 0; i < jobPosts.length; i++) { %>
                     <option><%= jobPosts[i].company %></option> 
@@ -15,12 +15,22 @@
                 </select>
               </div>
               <div class="mb-3">
+                <%# TODO: Limit selection based on company selection %>
+                <label for="intPosition" class="form-label">Which Position?</label>
+                <select name="intPosition" id="intPosition">
+                    <option selected disabled>Please select a job title</option> 
+                  <% for (let i = 0; i < jobPosts.length; i++) { %>
+                    <option><%= jobPosts[i].jobTitle %></option> 
+                  <% } %>
+                </select>
+              </div>
+              <div class="mb-3">
                 <label for="intDate" class="form-label">Interview Date</label>
-                <input type="text" class="form-control" id="intDate" name="intDate">
+                <input type="date" class="form-control" id="intDate" name="intDate">
               </div>
               <div class="mb-3">
                 <label for="intTime" class="form-label">Interview Time</label>
-                <input type="text" class="form-control" id="intTime" name="intTime">
+                <input type="time" class="form-control" id="intTime" name="intTime">
               </div>
               <div class="mb-3">
                   <label for="intLocation" class="form-label">Interview Location</label>

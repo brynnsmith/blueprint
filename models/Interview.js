@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 const InterviewSchema = new mongoose.Schema({
 
   intDate: {
-    type: String,
+    type: Date,
     required: true,
   },
   intTime: {
@@ -23,6 +23,12 @@ const InterviewSchema = new mongoose.Schema({
     type: String,
   },
   intNotes: {
+    type: String,
+  },
+  intCompany: {
+    type: String,
+  },
+  intPosition: {
     type: String,
   },
   intCompleted: {

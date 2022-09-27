@@ -1,25 +1,28 @@
 const mongoose = require("mongoose");
 
-const CoffeeChatSchema = new mongoose.Schema({
+const EventSchema = new mongoose.Schema({
 
-  chatDate: {
+  eventDate: {
+    type: Date,
+    required: true,
+  },
+  eventTime: {
     type: String,
     required: true,
   },
-  chatTime: {
-    type: String,
-    required: true,
-  },
-  chatLocation: {
+  eventLocation: {
      type: String,
   },
-  chatLinkURL: {
+  eventLinkURL: {
     type: String,
   },
-  chatNotes: {
+  eventType: {
     type: String,
   },
-  chatCompleted: {
+  eventNotes: {
+    type: String,
+  },
+  eventCompleted: {
     type: Boolean,
     default: false,
   },
@@ -33,4 +36,4 @@ const CoffeeChatSchema = new mongoose.Schema({
   }
 });
 
-module.exports = mongoose.model("CoffeeChat", CoffeeChatSchema);
+module.exports = mongoose.model("Event", EventSchema);
