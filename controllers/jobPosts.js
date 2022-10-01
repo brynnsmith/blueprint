@@ -1,26 +1,22 @@
 const cloudinary = require("../middleware/cloudinary");
 const JobPost = require("../models/JobPost");
 const Interview = require("../models/Interview");
+const Event = require("../models/Event");
+const Contact = require("../models/Contact");
 
 module.exports = {
+  // PROFILE
   getProfile: async (req, res) => {
     try {
       const jobPosts = await JobPost.find({ user: req.user.id }).sort({ dateAdded: "desc" }).lean();
       const interviews = await Interview.find({ user: req.user.id }).sort({ intDate: 1 }).lean();
-      //const events = await Event.find({ user: req.user.id }).sort({intDate: 1 }).lean();
-      res.render("profile.ejs", { jobPosts: jobPosts, user: req.user, interviews: interviews });
+      const events = await Event.find({ user: req.user.id }).sort({eventDate: 1 }).lean();
+      res.render("profile.ejs", { jobPosts: jobPosts, user: req.user, interviews: interviews, events: events });
     } catch (err) {
       console.log(err);
     }
   },
-  getFeed: async (req, res) => {
-    try {
-      const jobPosts = await JobPost.find().sort({ createdAt: "desc" }).lean();
-      res.render("feed.ejs", { jobPosts: jobPosts });
-    } catch (err) {
-      console.log(err);
-    }
-  },
+  // JOB POST
   getJobPost: async (req, res) => {
     try {
       const jobPost = await JobPost.findById(req.params.id);
@@ -117,6 +113,16 @@ getEditJob: async (req,res)  => {
     console.log(err)
   }
 },
+getFeed: async (req, res) => {
+  try {
+    const jobPosts = await JobPost.find().sort({ createdAt: "desc" }).lean();
+    res.render("feed.ejs", { jobPosts: jobPosts });
+  } catch (err) {
+    console.log(err);
+  }
+},
+
+// INTERVIEW
 
 getInterview: async (req, res) => {
   try {
@@ -159,11 +165,18 @@ createInterview: async (req, res) => {
       console.log(err);
     }
 },
+deleteInterview: async (req, res) => {
+  try {
+      await Interview.remove({ _id:req.params.id });
+      console.log('Interview contact!')
+  } catch (err) {
+      console.log(err);
+  }
+},
 
 
 
-
-// Networking 
+// NETWORKING 
 
 getAddContact: async (req, res) => {
   try {
@@ -206,7 +219,7 @@ getContact: async (req, res) => {
   try {
       const contact = await Contact.findById({ _id: req.params.id });
       const jobPost = await JobPost.findById({ _id: req.params.id });
-      res.render("contact.ejs", { contact: contact, user: req.user, jobPost: jobPost });
+      await res.render("contact.ejs", { contact: contact, user: req.user, jobPost: jobPost });
   } catch (err) {
       console.log(err);
   }
@@ -222,7 +235,7 @@ deleteContact: async (req, res) => {
 },
 getAddEvent: async (req, res) => {
   try {
-    await res.render("addEvent.ejs")
+    await res.render("addEvent.ejs", { user:req.user })
   } catch (err) {
     console.log(err);
   }
@@ -230,15 +243,16 @@ getAddEvent: async (req, res) => {
 createEvent: async (req, res) => {
   try {
     await Event.create({
+      eventTitle: req.body.eventTitle,
       eventDate: req.body.eventDate,
       eventTime: req.body.eventTime,
       eventLocation: req.body.eventLocation,
       eventLinkURL: req.body.eventLinkURL,
       eventType: req.body.eventType,
       eventNotes: req.body.eventNotes,
+      eventContact: req.body.eventContact,
       user: req.user.id,
     });
-
       console.log("Event has been added!");
       // TODO: redirect this to the job post it was added to
       res.redirect(`/profile`);
@@ -257,7 +271,7 @@ getEvent: async (req, res) => {
 deleteEvent: async (req, res) => {
   try {
       await Event.remove({ _id:req.params.id });
-      console.log('Deleted contact!')
+      console.log('Deleted event!')
   } catch (err) {
       console.log(err);
   }

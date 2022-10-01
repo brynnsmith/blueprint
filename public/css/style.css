@@ -4,7 +4,8 @@ body {
 }
 
 h1 {
-    font-family: 'Architects Daughter', cursive;
+   font-weight: 600;
+   font-size: 2.1rem;
 }
 
 h3 {
@@ -55,12 +56,83 @@ a:link {
     margin-top: 10px;
 }
 
+.half {
+    padding: 0 30px;
+    width: 50%;
+}
+
 .sectionInlay {
     padding: 20px;
     border-radius: 10px;
     box-shadow: inset 0px 0px 10px #a3a3a3;
     background-color: #ffffff;
 }
+
+/********* HOME PAGE ********/
+
+.hero {
+    background-color: #03002e;
+    padding: 120px 50px;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+}
+.leftHero {
+    width: 40%;
+    padding: 0 60px 0 30px;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+}
+.rightHero {
+    width: 60%;
+    display: flex;
+    justify-content: center;
+}
+.heroHeader {
+    font-size: 3.6rem;
+    font-weight: 800;
+    line-height: 1.05;
+    margin-bottom: 30px;
+}
+.heroSubHeader {
+    font-size: 1.3em;
+}
+.heroImg {
+    width: 870px;
+}
+.heroBtn {
+    width: 60%;
+    padding: 15px 25px; 
+    margin: 50px 0 10px 0;
+    border-radius: 20px;
+    font-size: 1.5rem;
+    font-weight: 700;
+    background-color: #17134d;
+    color: white;
+}
+.heroLogin {
+    color: #58affb;
+}
+
+@media only screen and (max-width: 1350px) {
+    .hero {
+        flex-flow: column;
+        padding: 60px 0;
+    }
+    .half {
+        width: 100%;
+        padding: 0 50px;
+        overflow: hidden;
+    }
+    .heroLeft, .heroRight {
+        width: 100%;
+    }
+    .heroBtn {
+        width: 100%;
+    }
+  }
+
 
 
 /********* USER PROFILE *******/
@@ -109,9 +181,9 @@ a:link {
 
 .companyLogo {
     margin: -3px 15px 0 0;
-    width: 45px;
-    height: 45px;
-    font-size: 1.8em;
+    width: 40px;
+    height: 40px;
+    font-size: 1.6em;
 }
 .userInfoText {
     display: block;
@@ -140,7 +212,7 @@ a:link {
 .jobListItem {
     list-style-type: none;
     background-color: #e8effc;
-    padding: 12px 10px 6px 10px;
+    padding: 10px 10px 5px 10px;
     margin:  0 0 5px 0;
     border-radius: 10px;
     display: flex;
@@ -152,8 +224,8 @@ a:link {
     padding: 0;
 }
 .jobListText {
-    font-size: 1em;
-    line-height: 0.9;
+    font-size: 0.9em;
+    line-height: 0.8;
     color: #141414;
 }
 .jobListTitle {

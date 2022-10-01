@@ -1,0 +1,61 @@
+<%- include('partials/header') -%>
+<div class="">
+  <div class="">
+    <section class="jobPostSection">
+        <div class="mt-5">
+            <h2>Add an Event</h2>
+            <form action="/jobPost/createEvent" enctype="multipart/form-data" method="POST">
+                <div class="mb-3">
+                    <label for="eventTitle" class="form-label">Event Title</label>
+                    <input type="text" class="form-control" id="eventTitle" name="eventTitle">
+                  </div>
+              <div class="mb-3">
+                <label for="eventDate" class="form-label">Event Date</label>
+                <input type="date" class="form-control" id="eventDate" name="eventDate">
+              </div>
+              <div class="mb-3">
+                <label for="eventTime" class="form-label">Event Time</label>
+                <input type="time" class="form-control" id="eventTime" name="eventTime">
+              </div>
+              <div class="mb-3">
+                  <label for="eventLocation" class="form-label">Event Location</label>
+                  <input type="text" class="form-control" id="eventLocation" name="eventLocation">
+              </div>
+              <div class="mb-3">
+                <label for="eventLinkURL" class="form-label">Event Link URL</label>
+                <input type="text" class="form-control" id="eventLinkURL" name="eventLinkURL">
+              </div>
+              <div class="mb-3">
+                <label for="eventType" class="form-label">Event Type</label>
+                <input type="text" class="form-control" id="eventType" name="eventType">
+              </div>
+              <div class="mb-3">
+                <label for="eventContact" class="form-label">Contact</label>
+                <input type="text" class="form-control" id="eventContact" name="eventContact">
+              </div>
+              <div class="mb-3">
+                <label for="eventNotes" class="form-label">Event Notes</label>
+                <input type="text" class="form-control" id="eventNotes" name="eventNotes">
+              </div>
+              <button type="submit" class="btn btn-primary" value="Upload">Submit</button>
+            </form>
+          </div>
+      
+    </section>
+    <div class="">
+      <a class="btn btn-primary" href="/profile">Return to Profile</a>
+      <a class="btn btn-primary" href="/feed">Return to Feed</a>
+    </div>
+  </div>
+</div>
+
+<%- include('partials/footer') -%>
+
+
+
+<%# IMAGE UPLOADER
+
+<div class="mb-3">
+    <label for="imgUpload" class="form-label">Image</label>
+    <input type="file" class="form-control" id="imageUpload" name="file">
+</div */ %>

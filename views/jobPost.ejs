@@ -3,8 +3,11 @@
   <div class="">
     <section class="jobPostSection">
       <section class="jobHeader">
-        <div class="companyLogo displayPic">
+        <div class="displayPic">
           <%= jobPost.companyLogo%>
+          <span class="displayPicText">
+            <%= jobPost.company[0]%>
+          </span>
         </div>
         <h2 class="mainJobTitle"><%= jobPost.jobTitle%></h2>
         <h4><%= jobPost.company%></h4>

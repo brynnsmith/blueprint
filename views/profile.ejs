@@ -79,25 +79,25 @@
 
       <%# Coffee Chat Feed %>
       <div class="jobBoardHeader">
-        <h2 class="profileHeader">Coffee Chats / Networking</h2>
-        <a href="/addInterview" class="btn add-btn"><i class="fa fa-circle-plus fa-2x"></i> <span class="addBtnText">Add an Interview</span></a>
+        <h2 class="profileHeader">Networking Events</h2>
+        <a href="/addEvent" class="btn add-btn"><i class="fa fa-circle-plus fa-2x"></i> <span class="addBtnText">Add an Event</span></a>
       </div>
        <%# TODO:  %>
       <section class="sectionInlay jobBoard">
         <div class="grid-item">
           <ul class="jobList">
-          <% for(var i=0; i<interviews.length; i++) {%>
-            <a href="/interview/<%= interviews[i]._id%>" class="">
+          <% for(var i=0; i<events.length; i++) {%>
+            <a href="/event/<%= events[i]._id%>" class="">
               <li class="jobListItem">
                 <div class="displayPic companyLogo">
                   <span class="displayPicText">
-                    <%= interviews[i].intCompany[0]%>
+                    <%= events[i].eventTitle%>
                   </span>
                 </div>
                 <div>
-                  <h2 class="jobListText jobListTitle"><%= interviews[i].intDate.toDateString()%></h2>
-                  <h2 class="jobListText"><%= interviews[i].intTime%> @ <%= interviews[i].intLocation%></h2>
-                  <h2 class="jobListText"><%= interviews[i].intCompany%></h2>
+                  <h2 class="jobListText jobListTitle"><%= events[i].eventDate%></h2>
+                  <h2 class="jobListText"><%= events[i].eventTime%> @ <%= events[i].eventLocation%></h2>
+                  <h2 class="jobListText"><%= events[i].eventTitle%></h2>
                 </div> 
               </li>
             </a>

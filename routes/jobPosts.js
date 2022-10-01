@@ -12,6 +12,8 @@ router.post("/createJobPost", upload.single("file"), jobPostsController.createJo
 
 router.post("/createInterview", upload.single("file"), jobPostsController.createInterview);
 
+router.post("/createEvent", upload.single("file"), jobPostsController.createEvent);
+
 router.put("/likeJobPost/:id", jobPostsController.likeJobPost);
 
 // Update when updateJobStatus has been created

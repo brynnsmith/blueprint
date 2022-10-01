@@ -11,6 +11,7 @@ router.get("/profile", ensureAuth, jobPostsController.getProfile);
 router.get("/addJob", ensureAuth, jobPostsController.getAddJob)
 router.get("/editJob", ensureAuth, jobPostsController.getEditJob)
 router.get("/addInterview", ensureAuth, jobPostsController.getAddInterview)
+router.get("/addEvent", ensureAuth, jobPostsController.getAddEvent)
 router.get("/feed", ensureAuth, jobPostsController.getFeed);
 router.get("/login", authController.getLogin);
 router.post("/login", authController.postLogin);

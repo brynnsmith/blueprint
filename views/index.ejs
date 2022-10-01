@@ -1,11 +1,20 @@
 <%- include('partials/header') -%>
-
-<main class="container">
-    <div class="row justify-content-around mt-5">
-        <a href="/login" class="col-3 btn btn-primary"> Login</a>
-        <a href="/signup" class="col-3 btn btn-primary"> Signup</a>
+<section class="hero">
+    <div class="half leftHero">
+        <h1 class="heroHeader">Organize & optimize your job search.</h1>
+        <h2 class="heroSubHeader">Track and manage job lists, applications, interview dates, networking events, contacts and more.</h2>
+        <button class="heroBtn" onclick="location.href='/signup'" type="button">Sign up for free</button>
+        <p>Already have an account? <a class="heroLogin" href="/login">Log-in here.</a></p>
     </div>
-</main>
+    <div class="half rightHero">
+        <img class="heroImg" src="/imgs/jobHunt-graphic4.png" alt="graphic of hiring process from opening, recruiting, interviewing to hired">
+    </div>
+</section>
+<section class="main">
+    <div>
+        Keep all of your job search and networking information in one place. Blueprint is your professional portal for navigating career changes, advancements and network development.
+    </div>
+</section>
     
 
 <%- include('partials/footer') -%>
