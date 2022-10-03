@@ -1,42 +1,146 @@
-/********* MAIN STYLES **********/
+/********* Box Model Hack **********/
+* {
+    box-sizing: border-box;
+}
+
+/********* Clear fix hack **********/
+.clearfix:after {
+    content: ".";
+    display: block;
+    clear: both;
+    visibility: hidden;
+    line-height: 0;
+    height: 0;
+}
+
+.clear {
+   clear: both;
+}
+
+
+/********* Text Styles **********/
 body {
     font-family: 'Inter', sans-serif;
 }
-
 h1 {
    font-weight: 600;
    font-size: 2.1rem;
 }
-
 h3 {
     font-size: 1rem;
     margin: 15px 0 2px 0;
 }
-
 span {
     display: inline-block;
     line-height: 1.3;
 }
-
 span, .mainJobTitle, #rangeValue {
     font-weight: 600;
 }
-
 a:link {
     text-decoration: none;
 }
+a:hover {
+    color: #2490fc;
+}
+.header-white {
+    font-weight: 700;
+    color: #f9f9f9;
+    margin: 10px 0;
+    line-height: 1.1;
+}
 
+/******** Main Styles *******/
+input {
+    margin: 18px 0;
+}
+.link {
+    color: #2b57e7;
+    font-weight: 700;
+    text-decoration: underline !important;
+}
+.link:hover {
+    color: #1e3ca0;
+}
+.form-control {
+    padding: 9px 12px;
+}
+.formHead {
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+}
+.btnFull {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    text-align: center;
+    border-radius: 7px;
+    background-color: #2b57e7;
+    color: #f9f9f9;
+    border: none;
+}
 
-/********* HEADER **********/
+/********* Layout **********/
+.main {
+    padding: 5px;
+    background-color: #f9f9f9;
+    height: 88vh;
+}
+.half {
+    padding: 0 30px;
+    width: 50%;
+}
+.one-third {
+    width: 33%;
+}
+.two-thirds {
+    width: 64%;
+    padding: 25px;
+}
+.justifyCenter {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.formBox {
+    display: flex;
+    flex-flow: column;
+    margin: 20px 50px;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 7px #b8b8b8;
+    background-color: #fefefe;
+}
+.formSmall {
+    max-width: 90vh;
+    min-width: 80vh;
+    display: flex;
+    flex-flow: row wrap;
+    margin-top: 15px;
+}
+.sectionInlay {
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: inset 0px 0px 10px #a3a3a3;
+    background-color: #ffffff;
+}
+
+/********* Header **********/
+
 .mainHeader {
     background-color: #17134d;
     height: 60px;
     color: #f9f9f9;
-    box-shadow: 0px 0px 6px #363636;
+    box-shadow: 0px 0px 6px #363636; 
+    padding: 0 50px;
+}
+.header2 {
+    display: flex;
+    justify-content: space-between;
 }
 .headerContainer {
     display: flex;
-    padding-left: 50px;
     align-items: center;
 }
 .siteName {
@@ -50,22 +154,71 @@ a:link {
     font-size: 0.9rem;
 }
 
-/********* LAYOUT **********/
-.main {
-    padding: 5px;
-    margin-top: 10px;
+.logo {
+    width: 45px;
+    margin: -8px 10px 0 0;
+}
+.nav {
+    display: flex;
+    align-content: center;
+}
+.loginNav {
+    list-style: none;
+    list-style-position: unset;
+    font-weight: 600;
+    font-size: 18px;
+}
+.loginNavLink {
+    display: inline-block;
+    margin: 10px 25px 0 25px;
+    color: #f9f9f9;
+}
+.loginNavLink:hover {
+    text-decoration: underline;
 }
 
-.half {
-    padding: 0 30px;
-    width: 50%;
+/********* Footer *********/
+footer {
+    text-align: center;
+    color: #f9f9f9;
+    background-color:#17134d;
+    height: 50px;
+    padding: 10px;
 }
 
-.sectionInlay {
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: inset 0px 0px 10px #a3a3a3;
-    background-color: #ffffff;
+/********* Sign-up / Login Pages *******/
+.blueprintLogo {
+    width: 70px;
+}
+.welcome {
+    font-weight: 700;
+    color: #17134d;
+    margin: 10px 0;
+}
+.form-text {
+    margin-top: -12px;
+}
+.side-panel {
+    background-color: #17134d;
+    background-image: url('/imgs/blueprint-background-tall.png');
+    background-position: center;
+    border-radius: 0  10px 10px 0;
+    margin-left: 20px;
+    padding: 25px;
+    color: #f9f9f9;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.side-text{
+    line-height: 1.4;
+    margin-top: 7px;
+}
+.rocket-icon2 {
+    width: 60px;
+    margin: -20px 0 20px 0;
 }
 
 /********* HOME PAGE ********/
@@ -108,7 +261,7 @@ a:link {
     border-radius: 20px;
     font-size: 1.5rem;
     font-weight: 700;
-    background-color: #17134d;
+    background-color: #2b57e7;
     color: white;
 }
 .heroLogin {
@@ -132,8 +285,6 @@ a:link {
         width: 100%;
     }
   }
-
-
 
 /********* USER PROFILE *******/
 .add-btn {
@@ -235,15 +386,6 @@ a:link {
 
 /********* JOB POST **********/
 
-.jobPostSection {
-    display: flex;
-    flex-flow: column;
-    margin: 20px 50px;
-    padding: 50px;
-    border-radius: 10px;
-    box-shadow: 0px 0px 7px #b8b8b8;
-    background-color: #ffffff;
-}
 .jobHeader {
     margin: 0 0 20px 0;
 }
@@ -334,6 +476,7 @@ a:link {
   right: 0;
   width: 300px;
   z-index: 9999;
+  border-left: 3px solid #1b49ac;
   background-color: #03002e;
   box-shadow: -2px 2px 20px rgba(#000, 0.5);
   user-select: none;
@@ -386,6 +529,7 @@ a:link {
 
 .menu-item:hover {
     background-color: #17134d;
+    border-left: 6px solid #1b49ac;
 }
 
 .menu__close {
