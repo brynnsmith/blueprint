@@ -65,9 +65,17 @@
                 </div>
                 <div>
                   <h2 class="jobListText jobListTitle"><%= interviews[i].intDate.toDateString()%></h2>
-                   <%# TODO:  Convert time from military to standard%>
-                  <h2 class="jobListText"><%= interviews[i].intTime %>
-                      @ <%= interviews[i].intLocation%></h2>
+                  <% if (interviews[i].intTime.split(':')[0] === '00') { %>
+                    <h2 class="jobListText">12:<%= interviews[i].intTime.split(':')[1]%>am @ <%= interviews[i].intLocation%></h2>
+                  <% } else if (interviews[i].intTime.split(':')[0] > 12) { %>
+                    <h2 class="jobListText"><%= interviews[i].intTime.split(':')[0]-=12 %>:<%= interviews[i].intTime.split(':')[1]%>pm @ <%= interviews[i].intLocation %></h2>
+                  <% } else if (interviews[i].intTime.split(':')[0] === '12') { %>
+                    <h2 class="jobListText">12:<%= interviews[i].intTime.split(':')[1]%>pm @ <%= interviews[i].intLocation%></h2>
+                  <% } else if (interviews[i].intTime[0] === '0') { %>
+                    <h2 class="jobListText"><%= interviews[i].intTime.slice(1)%>am @ <%= interviews[i].intLocation%></h2>
+                  <% } else { %>
+                    <h2 class="jobListText"><%= interviews[i].intTime%>am @ <%= interviews[i].intLocation  %></h2>
+                  <% } %>
                   <h2 class="jobListText"><%= interviews[i].intCompany%></h2>
                 </div> 
               </li>
@@ -91,12 +99,22 @@
               <li class="jobListItem">
                 <div class="displayPic companyLogo">
                   <span class="displayPicText">
-                    <%= events[i].eventTitle%>
+                    <%= events[i].eventTitle[0]%>
                   </span>
                 </div>
                 <div>
-                  <h2 class="jobListText jobListTitle"><%= events[i].eventDate%></h2>
-                  <h2 class="jobListText"><%= events[i].eventTime%> @ <%= events[i].eventLocation%></h2>
+                  <h2 class="jobListText jobListTitle"><%= events[i].eventDate.toDateString()%></h2>
+                  <% if (events[i].eventTime.split(':')[0] === '00') { %>
+                    <h2 class="jobListText">12:<%= events[i].eventTime.split(':')[1]%>am @ <%= events[i].eventLocation%></h2>
+                  <% } else if (events[i].eventTime.split(':')[0] > 12) { %>
+                    <h2 class="jobListText"><%= events[i].eventTime.split(':')[0]-=12 %>:<%= events[i].eventTime.split(':')[1]%>pm @ <%= events[i].eventLocation %></h2>
+                  <% } else if (events[i].eventTime.split(':')[0] === '12') { %>
+                    <h2 class="jobListText">12:<%= events[i].eventTime.split(':')[1]%>pm @ <%= events[i].eventLocation%></h2>
+                  <% } else if (events[i].eventTime[0] === '0') { %>
+                    <h2 class="jobListText"><%= events[i].eventTime.slice(1)%>am @ <%= events[i].eventLocation%></h2>
+                  <% } else { %>
+                    <h2 class="jobListText"><%= events[i].eventTime%>am @ <%= events[i].eventLocation  %></h2>
+                  <% } %>
                   <h2 class="jobListText"><%= events[i].eventTitle%></h2>
                 </div> 
               </li>
