@@ -72,6 +72,21 @@ module.exports = {
       console.log(err);
     }
   },
+
+  /*
+  updateJobStatus: async (req, res) => {
+    try {
+      await JobPost.findOneAndUpdate(
+        { _id: req.params.id },
+        { $inc: { active: !req.body.active, applied: req.body.applied, intview: req.body.intview, offer: req.body.offer, }, 
+      }
+      );
+      console.log("Updated job status");
+      res.redirect(`/jobPost/${req.params.id}`);
+    } catch (err) {
+      console.log(err);
+    }
+  }, */
   
 
 // TODO: UPDATE THIS TO MAKE IT UPDATE JOB STATUS
@@ -105,7 +120,7 @@ module.exports = {
     }
   },
  
-getEditJob: async (req,res)  => {
+editJob: async (req,res)  => {
   try {
     const jobPost = await JobPost.findById(req.params.id);
     await res.render("editJob.ejs", { jobPost: jobPost, user: req.user })
@@ -113,6 +128,7 @@ getEditJob: async (req,res)  => {
     console.log(err)
   }
 },
+
 getFeed: async (req, res) => {
   try {
     const jobPosts = await JobPost.find().sort({ createdAt: "desc" }).lean();

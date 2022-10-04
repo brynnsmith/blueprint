@@ -4,9 +4,9 @@ const upload = require("../middleware/multer");
 const jobPostsController = require("../controllers/jobPosts");
 const { ensureAuth, ensureGuest } = require("../middleware/auth");
 
-//Post Routes - simplified for now
+//Post Routes
 router.get("/:id", ensureAuth, jobPostsController.getJobPost);
-router.get("/:id/editJob", ensureAuth, jobPostsController.getJobPost);
+router.get("/editJob/:id", ensureAuth, jobPostsController.editJob);
 
 router.post("/createJobPost", upload.single("file"), jobPostsController.createJobPost);
 
@@ -15,6 +15,8 @@ router.post("/createInterview", upload.single("file"), jobPostsController.create
 router.post("/createEvent", upload.single("file"), jobPostsController.createEvent);
 
 router.put("/likeJobPost/:id", jobPostsController.likeJobPost);
+
+// router.put("/updateJobStatus/:id", jobPostsController.updateJobStatus);
 
 // Update when updateJobStatus has been created
 router.put("/markApplied/:id", jobPostsController.markApplied);

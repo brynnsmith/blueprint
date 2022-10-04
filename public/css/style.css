@@ -21,6 +21,7 @@
 /********* Text Styles **********/
 body {
     font-family: 'Inter', sans-serif;
+    background-color: required="true";
 }
 h1 {
    font-weight: 600;
@@ -28,7 +29,7 @@ h1 {
 }
 h3 {
     font-size: 1rem;
-    margin: 15px 0 2px 0;
+    margin: 15px 0 3px 0;
 }
 span {
     display: inline-block;
@@ -54,6 +55,11 @@ a:hover {
 input {
     margin: 18px 0;
 }
+.h2main {
+    font-weight: 700;
+    color: #17134d;
+    margin: 10px 0;
+}
 .link {
     color: #2b57e7;
     font-weight: 700;
@@ -70,6 +76,25 @@ input {
     flex-flow: column wrap;
     align-items: center;
 }
+
+.iconStyle2 {
+    margin: -7px 10px 0 10px;
+    color: #2b57e7;
+    display: inline-block;
+}
+.btn {
+    padding: 10px 22px;
+    text-align: center;
+    border-radius: 7px;
+    background-color: #2b57e7;
+    color: #f9f9f9;
+    border: none;
+    font-weight: 600;
+}
+.btn:hover {
+    text-decoration: underline;
+    color: #f9f9f9;
+}
 .btnFull {
     width: 100%;
     padding: 10px;
@@ -80,15 +105,52 @@ input {
     color: #f9f9f9;
     border: none;
 }
+.btn2 {
+    color: #ffffff;
+    background-color: #081c5f;
+    margin: 10px 0;
+}
+.btnSpace {
+    margin: 15px 0 10px 0;
+}
+.btnDelete {
+    background-color: #d33737;
+    margin: 0 15px;
+}
+.bottomBtns {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+.fa-trash {
+    margin-right: 8px;
+}
 
 /********* Layout **********/
 .main {
+    height: 88vh;
+}
+.main, .main2, .main3 {
     padding: 5px;
     background-color: #f9f9f9;
-    height: 88vh;
+} 
+.main2 {
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-items: center;
+}
+.main3 {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: center;
 }
 .half {
     padding: 0 30px;
+    width: 50%;
+}
+.half2 {
     width: 50%;
 }
 .one-third {
@@ -97,6 +159,9 @@ input {
 .two-thirds {
     width: 64%;
     padding: 25px;
+}
+.two-thirds2 {
+    width: 66%;
 }
 .justifyCenter {
     display: flex;
@@ -111,6 +176,19 @@ input {
     border-radius: 10px;
     box-shadow: 0px 0px 7px #b8b8b8;
     background-color: #fefefe;
+}
+.formTitle {
+    display: flex;
+    align-items: center;
+}
+.single {
+    padding: 30px 70px;
+    min-width: 50%;
+    max-width: 70%;
+}
+.single2 {
+    padding: 30px 70px;
+    min-width: 40%;
 }
 .formSmall {
     max-width: 90vh;
@@ -184,16 +262,15 @@ footer {
     background-color:#17134d;
     height: 50px;
     padding: 10px;
+    margin: 0;
+}
+.mt-auto {
+    margin-top: 0;
 }
 
 /********* Sign-up / Login Pages *******/
 .blueprintLogo {
     width: 70px;
-}
-.welcome {
-    font-weight: 700;
-    color: #17134d;
-    margin: 10px 0;
 }
 .form-text {
     margin-top: -12px;
@@ -388,16 +465,35 @@ footer {
 
 .jobHeader {
     margin: 0 0 20px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #1e3ca0;
 }
 .mainJobTitle {
     margin: 5px 0 3px 0;
+    color: #17134d;
+    font-weight: 700;
 }
 .jobSection {
-    padding: 10px 0;
+    padding: 0 0 20px 0;
+    margin-top: -5px;
 }
 .jobDescription {
     display: flex;
     flex-flow: row wrap;
+}
+.jobHead {
+    font-size: 1.3rem;
+    margin-top: 10px;
+    color: #17134d;
+    font-weight: 700;
+    padding-bottom: 5px;
+    border-bottom: 1px solid lightgrey;
+}
+.jobCatTitle {
+    color: #17134d;
+    font-weight: 700;
 }
 .jobHalf {
     padding: 0 30px;
@@ -406,14 +502,25 @@ footer {
 .jobWhole {
     padding: 0 30px;
 }
-.jobHead {
-    font-size: 1.3rem;
-    margin-top: 10px;
-}
 
 .jobStatus {
-    color: #0043a7;
+    color: #00b15e;
+    font-size: 1.2rem;
 }
+.interviewPanel {
+    display: flex;
+    margin: 10px 0 25px 0;
+}
+.interviewSingle {
+    margin: 5px;
+    border-radius: 10px;
+    box-shadow: inset 0px 0px 10px #a3a3a3;
+    min-height: 80px;
+    display: flex;
+    justify-content: center;
+}
+
+
 .rangeValue {
     display: inline;
     padding: 5px;
@@ -433,7 +540,6 @@ footer {
 .column2 {
     width: 50%;
 }
-
 
 
 

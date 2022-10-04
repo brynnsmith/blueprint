@@ -1,9 +1,9 @@
 <%- include('partials/header') -%>
-<div class="">
-  <div class="">
-    <section class="formBox">
+  <div class="main2">
+    <section class="formBox single">
       <section class="jobHeader">
-        <div class="displayPic">
+        <div class="two-thirds2">
+          <div class="displayPic">
           <%= jobPost.companyLogo%>
           <span class="displayPicText">
             <%= jobPost.company[0]%>
@@ -11,28 +11,31 @@
         </div>
         <h2 class="mainJobTitle"><%= jobPost.jobTitle%></h2>
         <h4><%= jobPost.company%></h4>
-        <a href="/editJob" class="btn btn-primary">Edit Job</a>
+        </div>
+        <div class="">
+          <a href="/jobPost/editJob/<%= jobPost.id %>" class="btn">Edit Job</a>
+        </div>
       </section>
       <h2 class="jobHead">Job Description</h2>
       <section class="jobDescription jobSection">
         <div class="jobHalf">
-          <h3>Job Title:</h3>
+          <h3 class="jobCatTitle">Job Title:</h3>
           <span><%= jobPost.jobTitle%></span>
-          <h3>Job Post URL:</h3>
-          <a href="<%= jobPost.jobPostURL%>"><span><%= jobPost.jobPostURL%></span></a>
-          <h3>Company:</h3>
+          <h3 class="jobCatTitle">Job Post URL:</h3>
+          <a href="<%= jobPost.jobPostURL%>" class="link"><span><%= jobPost.jobPostURL%></span></a>
+          <h3 class="jobCatTitle">Company:</h3>
           <span><%= jobPost.company%></span>
-          <h3>Company URL:</h3>
-          <a href="<%= jobPost.companyURL%>"><span><%= jobPost.companyURL%></span></a>
+          <h3 class="jobCatTitle">Company URL:</h3>
+          <a href="<%= jobPost.companyURL%>" class="link"><span><%= jobPost.companyURL%></span></a>
         </div>
         <div class="jobHalf">
-          <h3>Job Location:</h3>
+          <h3 class="jobCatTitle">Job Location:</h3>
           <span><%= jobPost.jobLocation%></span>
-          <h3>Expected Salary:</h3>
+          <h3 class="jobCatTitle">Expected Salary:</h3>
           <span><%= jobPost.salary%></span>
-          <h3>Description:</h3>
+          <h3 class="jobCatTitle">Description:</h3>
           <span><%= jobPost.description%></span>
-          <h3>Skills Required:</h3>
+          <h3 class="jobCatTitle">Skills Required:</h3>
           <span><%= jobPost.skillsRequired%></span>
         </div>
       </section>
@@ -40,7 +43,7 @@
       <section class="jobSection">
         <h2 class="jobHead">Job Status</h2>
         <div class="jobHalf">
-          <% if(jobPost.applied === false && jobPost.intview === false && jobPost.offer === false && jobPost.jobVault === false) { %>
+          <% if(jobPost.active === true && jobPost.applied === false && jobPost.intview === false && jobPost.offer === false && jobPost.jobVault === false) { %>
             <span class="jobStatus">Active</span>
           <% } else if (jobPost.applied === true && jobPost.intview === false && jobPost.offer === false && jobPost.jobVault === false) { %>
             <span class="jobStatus">Applied</span>
@@ -55,94 +58,77 @@
           <% }
           %> 
         </div>
-        <div>
-          <form class="" action="/jobPost/updateJobStatus/<%= jobPost.id %>?_method=PUT" method="POST" >  
-          <label for="selectJobStatus" class="form-label">Update Job Status:</label>
-          <select name="selectJobStatus" id="selectJobStatus">
-            <option value="active">Active</option>
-            <option value="applied">Applied</option>
-            <option value="interview">Interview</option>
-            <option value="offer">Offer</option>
-            <option value="vaulted">Vaulted</option>
-          </select>
-              <button class="btn btn-primary" type="submit">Submit</button>
-            </form>
-        </div>
-      </section>
-
-      <section class="jobSection">
-        <h2 class="jobHead">Interest Level</h2>
-        <div class="jobHalf">
-          <div class="slidecontainer">
-            <input type="range" min="1" max="100" value="50" oninput="rangeValue.innerText = this.value" class="interestLevel" id="interestLevel" name="interestLevel">
-            <span class="rangeValue">50</span>
-          </div>
-        </div>
-        <div class="jobHalf">
-            <span><%= jobPost.interestLevel%></span>
-        </div>
       </section>
     
       <section class="interviewSection">
         <h2 class="jobHead">Interviews</h2> 
-        <%# TODO: Add Interview Section %>
-        <a href="/addInterview" class="btn btn-primary">Add an Interview</a>
-        <% if (jobPost.intview === true) { %>
+        <%# TODO: Add Interview Feedback %>
+        <span class="grey">Are you interviewing for this position?</span>
         <section class="interviewPanel">
-          <div class="interviewSingle">
-
+          <div class="interviewSingle one-third">
+            <a href="/addInterview" class="add-btn" type="button"><i class="fa fa-circle-plus fa-2x"></i> <span class="addBtnText">Add an Interview</span></a>
           </div>
-          <div class="interviewSingle">
-
+          <div class="interviewSingle one-third">
+            <a href="/addInterview" class="add-btn" type="button"><i class="fa fa-circle-plus fa-2x"></i> <span class="addBtnText">Add an Interview</span></a>
           </div>
-          <div class="interviewSingle">
-
+          <div class="interviewSingle one-third">
+            <a href="/addInterview" class="add-btn" type="button"><i class="fa fa-circle-plus fa-2x"></i> <span class="addBtnText">Add an Interview</span></a>
           </div>
         </section>
-        <% }
-        %>
       </section>
 
       <section class="contactsSection">
         <h2 class="jobHead">Contacts</h2>
         <%# TODO: Add Contacts Section %>
+        <section class="interviewPanel">
+          <div class="jobHalf">
+            <span class="grey">People who work at <%= jobPost.company %></span>
+            <button href="/addContact" class="btn btnSpace">Add a Contact</button>
+          </div>
+          <div class="">
+            
+          </div>
+        </section>
+        <div>
+          
+        </div>
+        
       </section>
 
       <section class="networkingSection">
         <h2 class="jobHead">Networking</h2> 
-        <%# TODO: Add Networking Section %>
+        <%# TODO: Add Networking Feedback %>
+        <span class="grey">Meet with contacts at <%= jobPost.company %></span>
+        <section class="interviewPanel">
+          <div class="interviewSingle one-third">
+            <a href="/addEvent" class="add-btn" type="button"><i class="fa fa-circle-plus fa-2x"></i> <span class="addBtnText">Add an Event</span></a>
+          </div>
+          <div class="interviewSingle one-third">
+            <a href="/addEvent" class="add-btn" type="button"><i class="fa fa-circle-plus fa-2x"></i> <span class="addBtnText">Add an Event</span></a>
+          </div>
+          <div class="interviewSingle one-third">
+            <a href="/addEvent" class="add-btn" type="button"><i class="fa fa-circle-plus fa-2x"></i> <span class="addBtnText">Add an Event</span></a>
+          </div>
+        </section>
       </section>
 
       <%# TODO: Add form to add notes to job post %>
       <h2 class="jobHead">Additional Notes</h2>
-      
-
-      <div class="">
-        <form
-          class=""
-          action="/jobPost/likeJobPost/<%= jobPost.id %>?_method=PUT"
-          method="POST"
-        >
-          <button class="btn btn-primary fa fa-heart" type="submit"></button>
-        </form>
-        <h3 class="">Likes: <%= jobPost.likes %></h3>
+        <p class="additionalNotes"></p>
+    </section>
+    <div class="bottomBtns">
         <%if(jobPost.user == user.id){ %>
         <form
           action="/jobPost/deleteJobPost/<%= jobPost.id %>?_method=DELETE"
           method="POST"
           class=""
         >
-          <button class="btn btn-primary fa fa-trash" type="submit"></button>
+          <button class="btn btnDelete" type="submit"><i class="fa fa-trash"></i>Delete Job Post</button>
         </form>
         <%}%>
+        <a class="btn btn2" href="/profile" type="button">Return to Profile</a>
       </div>
-      </div>
-    </section>
-    <div class="">
-      <a class="btn btn-primary" href="/profile">Return to Profile</a>
-      <a class="btn btn-primary" href="/feed">Return to Feed</a>
-    </div>
   </div>
-</div>
 
 <%- include('partials/footer') -%>
+

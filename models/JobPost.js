@@ -50,6 +50,10 @@ const JobPostSchema = new mongoose.Schema({
     type: Date,
     default: Date.now,
   },
+  active: {
+    type: Boolean,
+    default: true,
+  },
   applied: {
     type: Boolean,
     default: false, 
@@ -85,6 +89,10 @@ const JobPostSchema = new mongoose.Schema({
   },
   interestLevel: {
     type: String,
+  },
+  favourite: {
+    type: Boolean,
+    default: false,
   },
   image: {
     type: String,

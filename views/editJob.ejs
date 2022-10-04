@@ -1,59 +1,43 @@
 <%- include('partials/header') -%>
-<div class="">
-  <div class="">
-    <section class="jobPostSection">
-        <h2>Edit Job Post</h2>
-        <section class="editJobPostSection">
-            <div class="column2">
-            Existing content ehre.
-            <%= jobPost.company%>
-        </div>
-        <div class="column2">
-            <form action="/jobPost/editJob" enctype="multipart/form-data" method="PUT">
-              <div class="mb-3">
-                <label for="jobTitle" class="form-label">Job Title</label>
-                <input type="text" class="form-control" id="jobTitle" name="jobTitle" placeholder=<%=jobPost%>>
+  <div class="main3">
+    <section class="formBox single2">
+        <div class="">
+          <div class="formTitle">
+            <i class="fa fa-plus fa-2x iconStyle2"></i><h2 class="h2main">Edit Job</h2>
+          </div>
+            <form action="/jobPost/updateJobPost" enctype="multipart/form-data" method="PUT">
+              <div class="">
+                <input type="text" class="form-control" id="jobTitle" name="jobTitle" placeholder="Job Title">
               </div>
-              <div class="mb-3">
-                <label for="jobPostURL" class="form-label">Job Post URL</label>
-                <input type="text" class="form-control" id="jobPostURL" name="jobPostURL">
+              <div class="">
+                <input type="text" class="form-control" id="jobPostURL" name="jobPostURL" placeholder="Job Post URL">
               </div>
-              <div class="mb-3">
-                  <label for="company" class="form-label">Company</label>
-                  <input type="text" class="form-control" id="company" name="company">
+              <div class="">
+                  <input type="text" class="form-control" id="company" name="company" placeholder="Company">
               </div>
-              <div class="mb-3">
-                <label for="companyURL" class="form-label">Company URL</label>
-                <input type="text" class="form-control" id="companyURL" name="companyURL">
+              <div class="">
+                <input type="text" class="form-control" id="companyURL" name="companyURL" placeholder="Company URL">
               </div>
-              <div class="mb-3">
-                <label for="jobLocation" class="form-label">Job Location</label>
-                <input type="text" class="form-control" id="jobLocation" name="jobLocation">
+              <div class="">
+                <input type="text" class="form-control" id="jobLocation" name="jobLocation" placeholder="Job Location">
               </div>
-              <div class="mb-3">
-                <label for="salary" class="form-label">Salary</label>
-                <input type="text" class="form-control" id="salary" name="salary">
+              <div class="">
+                <input type="text" class="form-control" id="salary" name="salary" placeholder="Expected Salary Range">
               </div>
-              <div class="mb-3">
-                <label for="description" class="form-label">Description</label>
-                <input type="text" class="form-control" id="description" name="description">
+              <div class="">
+                <input type="text" class="form-control" id="description" name="description" placeholder="Job Description">
               </div>
-              <div class="mb-3">
-                <label for="skillsRequired" class="form-label">Skills Required</label>
-                <input type="text" class="form-control" id="skillsRequired" name="skillsRequired">
+              <div class="">
+                <input type="text" class="form-control" id="skillsRequired" name="skillsRequired" placeholder="Skills Required">
               </div>
-              <button type="submit" class="btn btn-primary" value="Upload">Submit</button>
+              <button type="submit" class="btnFull btn" value="Upload">Add Job</button>
             </form>
           </div>
-        </section>
-        
       
     </section>
     <div class="">
-      <a class="btn btn-primary" href="/profile">Return to Profile</a>
-      <a class="btn btn-primary" href="/feed">Return to Feed</a>
+      <a class="btn btn2" href="/profile">Return to Profile</a>
     </div>
   </div>
-</div>
 
 <%- include('partials/footer') -%>
