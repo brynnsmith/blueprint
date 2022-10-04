@@ -1,11 +1,12 @@
 <%- include('partials/header') -%>
-<div class="">
-  <div class="">
-    <section class="formBox">
-        <div class="mt-5">
-            <h2>Add an Interview</h2>
+  <div class="main3">
+    <section class="formBox single2">
+        <div class="">
+          <div class="formTitle">
+            <i class="fa fa-plus fa-2x iconStyle2"></i><h2 class="h2main">Add an Interview</h2>
+          </div>
             <form action="/jobPost/createInterview" enctype="multipart/form-data" method="POST">
-              <div class="mb-3">
+              <div class="">
                 <label for="intCompany" class="form-label">Which Company?</label>
                 <select name="intCompany" id="intCompany">
                     <option selected disabled>Please select a company</option> 
@@ -14,7 +15,7 @@
                   <% } %>
                 </select>
               </div>
-              <div class="mb-3">
+              <div class="">
                 <%# TODO: Limit selection based on company selection %>
                 <label for="intPosition" class="form-label">Which Position?</label>
                 <select name="intPosition" id="intPosition">
@@ -24,45 +25,39 @@
                   <% } %>
                 </select>
               </div>
-              <div class="mb-3">
-                <label for="intDate" class="form-label">Interview Date</label>
-                <input type="date" class="form-control" id="intDate" name="intDate">
+              <div class="">
+                <label for="intDate" class="">Interview Date</label>
+                <input type="date" class="form-control input2" id="intDate" name="intDate" placeholder="Interview Date">
               </div>
-              <div class="mb-3">
-                <label for="intTime" class="form-label">Interview Time</label>
-                <input type="time" class="form-control" id="intTime" name="intTime">
+              <div class="">
+                <label for="intTime" class="">Interview Time</label>
+                <input type="time" class="form-control input2" id="intTime" name="intTime" placeholder="Interview Time">
               </div>
-              <div class="mb-3">
-                  <label for="intLocation" class="form-label">Interview Location</label>
-                  <input type="text" class="form-control" id="intLocation" name="intLocation">
+              <div class="">
+                  <input type="text" class="form-control" id="intLocation" name="intLocation" placeholder="Interview Location">
               </div>
-              <div class="mb-3">
-                <label for="intLinkURL" class="form-label">Interview Link URL</label>
-                <input type="text" class="form-control" id="intLinkURL" name="intLinkURL">
+              <div class="">
+                <input type="text" class="form-control" id="intLinkURL" name="intLinkURL" placeholder="Link to Interview (URL)">
               </div>
-              <div class="mb-3">
-                <label for="intType" class="form-label">Interview Type</label>
-                <input type="text" class="form-control" id="intType" name="intType">
+              <div class="">
+                <input type="text" class="form-control" id="intType" name="intType" placeholder="Type of Interview">
               </div>
-              <div class="mb-3">
-                <label for="intPerson" class="form-label">Person Interviewing With</label>
-                <input type="text" class="form-control" id="intPerson" name="intPerson">
+              <div class="">
+                <input type="text" class="form-control" id="intPerson" name="intPerson" placeholder="Who will you be interviewing with?">
               </div>
-              <div class="mb-3">
-                <label for="intNotes" class="form-label">Additional Notes</label>
-                <input type="text" class="form-control" id="intNotes" name="intNotes">
+              <div class="">
+                <input type="text" class="form-control" id="intNotes" name="intNotes" placeholder="Additional Notes">
               </div>
-              <button type="submit" class="btn btn-primary" value="Upload">Submit</button>
+              <button type="submit" class="btn btnFull" value="Upload">Submit</button>
             </form>
           </div>
       
     </section>
     <div class="">
-      <a class="btn btn-primary" href="/profile">Return to Profile</a>
-      <a class="btn btn-primary" href="/feed">Return to Feed</a>
+      <a class="btn btn2" href="/profile">Return to Profile</a>
+      <a class="btn btn2" href="/jobPost/:id">Return to Job</a>
     </div>
   </div>
-</div>
 
 <%- include('partials/footer') -%>
 

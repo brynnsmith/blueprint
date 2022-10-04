@@ -55,6 +55,23 @@ a:hover {
 input {
     margin: 18px 0;
 }
+.input2 {
+    margin-top: 6px;
+}
+label {
+    margin-bottom: -20px;
+    font-weight: 700;
+    color: #17134d;
+}
+select {
+    padding: 7px 10px;
+    background-color: #ffffff;
+    margin: 7px;
+    border-radius: 10px;
+    font-size: 14px;
+    color: #17134d;
+    font-weight: 600;
+}
 .h2main {
     font-weight: 700;
     color: #17134d;
@@ -108,7 +125,7 @@ input {
 .btn2 {
     color: #ffffff;
     background-color: #081c5f;
-    margin: 10px 0;
+    margin: 10px 0 20px 0;
 }
 .btnSpace {
     margin: 15px 0 10px 0;
@@ -183,12 +200,12 @@ input {
 }
 .single {
     padding: 30px 70px;
-    min-width: 50%;
-    max-width: 70%;
+    min-width: 40%
 }
 .single2 {
     padding: 30px 70px;
     min-width: 40%;
+    max-width: 80%;
 }
 .formSmall {
     max-width: 90vh;

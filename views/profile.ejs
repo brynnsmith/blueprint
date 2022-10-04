@@ -2,6 +2,7 @@
 <section class="">
   <section class="userArea">
       <section class="sectionInlay userInfo">
+        <div class="one-third justify">
           <div class="displayPic">
             <%= user.userName[0] %>
             <%#<img src="" alt="user's profile image">%>
@@ -10,11 +11,14 @@
               <span class="userInfoText"><strong>User Name</strong>: <%= user.userName %></span>
               <span class="userInfoText"><strong>Job Title</strong>: <%= user.jobTitle %></span>
           </div>
+        </div>
           <div class="nextInterview">
-            Next Interview:
+            <strong>Next Interview:</strong> <%= interviews[0].intCompany %> <br>
+            <%= interviews[0].intDate.toDateString()%> @ <%= interviews[0].intTime %>
           </div>
           <div class="nextCoffeeChat">
-            Next Coffee Chat:
+            <strong>Next Event:</strong> <%= events[0].eventDate.toDateString()%><br>
+            <%= events[0].eventTitle %>
           </div>
       </section>
 
