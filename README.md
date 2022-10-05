@@ -1,5 +1,5 @@
 # Blueprint
-Plan your success. Blueprint is your one-stop career advancement and networking manager. Organize your job searches, track applications and interviews, manage contacts and schedule networking events.
+Plan for success. Blueprint is your one-stop career advancement and networking manager. Organize your job searches, track applications and interviews, manage contacts and schedule networking events.
 
 <img src='https://brynnsmith.com/images/blueprint-signup.jpg'>
 
