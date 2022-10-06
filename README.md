@@ -11,6 +11,8 @@ Tech used: HTML, CSS, Bootstrap, JavaScript, Express, Node.js, MongoDB
 
 ## Optimizations
 
+Some next steps for this project are implementing a drag and drop job status sort for the dashboard.
+
 ## Lessons Learned
 
 ## More Examples
