@@ -31,9 +31,13 @@ h3 {
     font-size: 1rem;
     margin: 15px 0 3px 0;
 }
+
 span {
     display: inline-block;
     line-height: 1.3;
+}
+.spanRight {
+    right: 0;
 }
 span, .mainJobTitle, #rangeValue {
     font-weight: 600;
@@ -76,6 +80,23 @@ select {
     font-weight: 700;
     color: #17134d;
     margin: 10px 0;
+}
+.h3-2 {
+    font-weight: 600;
+    color: #ffffff;
+    font-size: 1.2em;
+   
+    background-color: #17134d;
+    padding: 14px 40px;
+    border-radius: 10px;
+}
+.defaultText {
+    color: #3f3f3f;
+    font-weight: 700;
+    font-size: 1rem;
+}
+.defaultBlock {
+    padding: 10px 30px;
 }
 .link {
     color: #2b57e7;
@@ -173,6 +194,11 @@ select {
 .one-third {
     width: 33%;
 }
+.one-quarter {
+    width: 23%;
+    min-width: 250px;
+    margin: 0 10px;
+}
 .two-thirds {
     width: 64%;
     padding: 25px;
@@ -184,6 +210,10 @@ select {
     display: flex;
     align-items: center;
     justify-content: center;
+}
+.job-container {
+    display: flex;
+    flex-flow: row wrap;
 }
 .formBox {
     display: flex;
@@ -437,9 +467,13 @@ footer {
 .nextInterview, .nextCoffeeChat {
     margin: 0 30px;
 }
+.vaultLink {
+    justify-self: flex-end;
+}
 .jobBoard {
     padding: 12px;
     margin-bottom: 40px;
+    min-height: 125px;
 }
 
 .jobBoardHeader {
@@ -452,6 +486,7 @@ footer {
 .profileHeader {
     font-weight: 700;
     font-size: 1.6em;
+    display: flex;
 }
 
 .jobListItem {
@@ -462,6 +497,9 @@ footer {
     border-radius: 10px;
     display: flex;
 
+}
+.jobListItem:hover {
+    border-left: 14px solid #2490fc;
 }
 
 .jobList {

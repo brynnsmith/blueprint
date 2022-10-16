@@ -25,31 +25,143 @@
       <br><br>
       <%# Job Feed %>
       <div class="jobBoardHeader">
-        <h2 class="profileHeader">My Job Bank</h2>
-        <a href="/addJob" class="add-btn"><i class="fa fa-circle-plus fa-2x"></i> <span class="addBtnText">Add a Job</span></a>
+        <div class="">
+          <h2 class="profileHeader">My Job Board</h2>
+          <a href="/addJob" class="add-btn"><i class="fa fa-circle-plus fa-2x"></i> <span class="addBtnText">Add a Job</span></a>
+        </div>
+        
+        <span class="vaultLink">View Job Vault (Inactive Job Posts)</span>
       </div>
        <%# TODO: Update colour based on interest level, maybe add a special marking or layout so it isn't entirely colour dependent %>
-      <section class="sectionInlay jobBoard">
-        <div class="grid-item">
-          <ul class="jobList">
-          <% for(var i=0; i<jobPosts.length; i++) {%>
-            <a href="/jobPost/<%= jobPosts[i]._id%>" class="">
-              <li class="jobListItem">
-                <div class="displayPic companyLogo">
-                  <span class="displayPicText">
-                    <%= jobPosts[i].company[0]%>
-                  </span>
-                </div>
-                <div>
-                  <h2 class="jobListText jobListTitle"><%= jobPosts[i].jobTitle%></h2>
-                  <h2 class="jobListText"><%= jobPosts[i].company%></h2>
-                </div>
-              </li>
-            </a>
-          <% } %>
-          </ul>
+
+      <section class="job-container">
+
+        <%# Active Jobs %>
+        <div class="one-quarter">
+          <h3 class="h3-2">Active</h3>
+          <section class="sectionInlay jobBoard ">
+            <% if (jobPosts.length === 0) { %> 
+              <div class="defaultBlock">
+                <h3 class="defaultText"><a href="/addJob" class="link">Add a Job</a> to get started.</h3>
+              </div>
+            <% } %>
+            <div class="grid-item">
+              <ul class="jobList">
+              <% for(var i=0; i<jobPosts.length; i++) {%>
+                <a href="/jobPost/<%= jobPosts[i]._id%>" class="">
+                  <li class="jobListItem">
+                    <div class="displayPic companyLogo">
+                      <span class="displayPicText">
+                        <%= jobPosts[i].company[0]%>
+                      </span>
+                    </div>
+                    <div>
+                      <h2 class="jobListText jobListTitle"><%= jobPosts[i].jobTitle%></h2>
+                      <h2 class="jobListText"><%= jobPosts[i].company%></h2>
+                    </div>
+                  </li>
+                </a>
+              <% } %>
+              </ul>
+            </div>
+          </section>
         </div>
+
+        <%# Jobs Applied %>
+        <div class ="one-quarter">
+          <h3 class="h3-2">Applied</h3>
+          <section class="sectionInlay jobBoard">
+            <% if (jobPosts.filter(job => job.applied === true).length === 0) { %> 
+                <div class="defaultBlock">
+                  <h3 class="defaultText">Active jobs that have been marked as 'Applied' will be listed here.</h3>
+                </div>
+            <% } %>
+            <div class="grid-item">
+              <ul class="jobList">
+              <% for(var i=0; i<jobPosts.filter(job => job.applied === true).length; i++) {%>
+                <a href="/jobPost/<%= jobPosts[i]._id%>" class="">
+                  <li class="jobListItem">
+                    <div class="displayPic companyLogo">
+                      <span class="displayPicText">
+                        <%= jobPosts[i].company[0]%>
+                      </span>
+                    </div>
+                    <div>
+                      <h2 class="jobListText jobListTitle"><%= jobPosts[i].jobTitle%></h2>
+                      <h2 class="jobListText"><%= jobPosts[i].company%></h2>
+                    </div>
+                  </li>
+                </a>
+              <% } %>
+              </ul>
+            </div>
+          </section>
+        </div>
+
+        <%# Jobs Interviewing For %>
+        <div class ="one-quarter">
+          <h3 class="h3-2">Interviewing</h3>
+          <section class="sectionInlay jobBoard">
+            <% if (jobPosts.filter(job => job.interview === true).length === 0) { %> 
+              <div class="defaultBlock">
+                <h3 class="defaultText">Active jobs that have been marked as 'Interviewing' will be listed here.</h3>
+              </div>
+            <% } %>
+            <div class="grid-item">
+              <ul class="jobList">
+              <% for(var i=0; i<jobPosts.filter(job => job.interview === true).length; i++) {%>
+                <a href="/jobPost/<%= jobPosts[i]._id%>" class="">
+                  <li class="jobListItem">
+                    <div class="displayPic companyLogo">
+                      <span class="displayPicText">
+                        <%= jobPosts[i].company[0]%>
+                      </span>
+                    </div>
+                    <div>
+                      <h2 class="jobListText jobListTitle"><%= jobPosts[i].jobTitle%></h2>
+                      <h2 class="jobListText"><%= jobPosts[i].company%></h2>
+                    </div>
+                  </li>
+                </a>
+              <% } %>
+              </ul>
+            </div>
+          </section>
+        </div>
+
+        <%# Job Offers %>
+        <div class ="one-quarter">
+          <h3 class="h3-2">Offers</h3>
+          <section class="sectionInlay jobBoard">
+            <% if (jobPosts.filter(job => job.offer === true).length === 0) { %> 
+              <div class="defaultBlock">
+                <h3 class="defaultText">Active jobs that have been marked as 'Offered' will be listed here.</h3>
+              </div>
+            <% } %>
+            <div class="grid-item">
+              <ul class="jobList">
+              <% for(var i=0; i<jobPosts.filter(job => job.offer === true).length; i++) {%>
+                <a href="/jobPost/<%= jobPosts[i]._id%>" class="">
+                  <li class="jobListItem">
+                    <div class="displayPic companyLogo">
+                      <span class="displayPicText">
+                        <%= jobPosts[i].company[0]%>
+                      </span>
+                    </div>
+                    <div>
+                      <h2 class="jobListText jobListTitle"><%= jobPosts[i].jobTitle%></h2>
+                      <h2 class="jobListText"><%= jobPosts[i].company%></h2>
+                    </div>
+                  </li>
+                </a>
+              <% } %>
+              </ul>
+            </div>
+          </section>
+        </div>
+        
       </section>
+      
 
       <%# Interview Feed %>
       <div class="jobBoardHeader">
