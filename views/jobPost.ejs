@@ -3,7 +3,7 @@
     <section class="formBox single">
       <section class="jobHeader">
         <div class="two-thirds2">
-          <div class="displayPic">
+          <div class="displayPic" style="background-color:'#<%= jobPost.colour%>'">
           <%= jobPost.companyLogo%>
           <span class="displayPicText">
             <%= jobPost.company[0]%>
@@ -57,6 +57,23 @@
             <span class="jobStatus">Vaulted</span>
           <% }
           %> 
+        </div>
+        <div>
+          <fieldset>
+            <form action="/jobPost/updateJobStatus/<%= jobPost.id %>?_method=PUT" enctype="multipart/form-data" method="POST">
+              <label for="jobStatus">Update Job Status:</label><br>
+              <select name="jobStatus" id="jobStatus">
+                <option value="active" name="active" id="active">Active</option>
+                <option value="applied" name="applied" id="applied">Applied</option>
+                <option value="interviewing" name="intView" id="intView">Interviewing</option>
+                <option value="negotiating" name="offered" id="offered">Negotiating</option>
+                <option value="offer-accepted" name="active" id="active">Offer Accepted</option>
+                <option value="move-to-vault" name="active" id="active">Move to Vault</option>
+              </select>
+              <button type="submit" class="btn btn" value="submit">Update</button>
+            </form>
+          </fieldset>
+
         </div>
       </section>
     

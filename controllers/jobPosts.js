@@ -51,6 +51,7 @@ module.exports = {
         skillsRequired: req.body.skillsRequired,
         likes: 0,
         user: req.user.id,
+        colour: Math.floor(Math.random() * 1e7).toString(16)
       });
       console.log("Post has been added!");
       res.redirect("/profile");
@@ -73,12 +74,12 @@ module.exports = {
     }
   },
 
-  /*
+  
   updateJobStatus: async (req, res) => {
     try {
       await JobPost.findOneAndUpdate(
         { _id: req.params.id },
-        { $inc: { active: !req.body.active, applied: req.body.applied, intview: req.body.intview, offer: req.body.offer, }, 
+        { $inc: { active: !req.body.active, applied: req.body.applied, intview: req.body.intview, offer: req.body.offer, accepted: req.body.accepted, vaulted: req.body.vaulted}, 
       }
       );
       console.log("Updated job status");
@@ -86,7 +87,7 @@ module.exports = {
     } catch (err) {
       console.log(err);
     }
-  }, */
+  }, 
   
 
 // TODO: UPDATE THIS TO MAKE IT UPDATE JOB STATUS

@@ -101,6 +101,9 @@ const JobPostSchema = new mongoose.Schema({
   cloudinaryId: {
     type: String,
     require: true,
+  },
+  colour: {
+    type: String,
   }
 
 });
