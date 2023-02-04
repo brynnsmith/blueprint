@@ -13,7 +13,7 @@ Tech used: HTML, CSS, Bootstrap, JavaScript, Express, Node.js, MongoDB
 
 Some next steps for this project are implementing a drag and drop job status sort for the dashboard. I'd also like to build out the profile area a little further so users can personalize their experience.
 
-Build out mobile version
+Build out mobile version.
 
 ## Lessons Learned
 
